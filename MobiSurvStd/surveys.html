@@ -1,0 +1,632 @@
+<!DOCTYPE HTML>
+<html lang="en" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Surveys - MobiSurvStd</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-e96d0476.css">
+        <link rel="stylesheet" href="css/chrome-d279d366.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "rust";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-5a1aa44a.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-d1dade75.js"></script>
+    <link rel="canonical" href="https://nemobi.lucasjavaudin.com/surveys.html">
+</head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">MobiSurvStd</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/LucasJavaudin/MobiSurvStd" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+<div id="nemobi-rename-banner" style="margin: 1em 0 2em; padding: 0.8em 1.2em;
+  border-left: 5px solid #e69f00; background: var(--quote-bg); color: var(--fg);">
+<p style="margin: 0.3em 0;">⚠️ <strong>MobiSurvStd has been renamed to Nemobi.</strong>
+This documentation is frozen at MobiSurvStd v1.6.1 and is no longer updated.</p>
+<p style="margin: 0.3em 0;">→ <a id="nemobi-rename-link" href="https://nemobi.lucasjavaudin.com/surveys.html"><strong>See this page in the
+Nemobi documentation</strong></a> · <a href="https://nemobi.lucasjavaudin.com/migration.html">Migration guide</a></p>
+</div>
+<script>
+  (function () {
+    var link = document.getElementById("nemobi-rename-link");
+    if (link && window.location.hash) { link.href = link.href + window.location.hash; }
+  })();
+</script>
+
+                        <h1 id="surveys"><a class="header" href="#surveys">Surveys</a></h1>
+<p>This page lists all the survey types which are currently supported by MobiSurvStd.</p>
+<div class="warning">
+For each type, the expected format (tree structure and filenames) is provided.
+If you have a survey with a different format (which can happen if you did not get your survey from
+Progedo), then MobiSurvStd will not be able to guess the survey type and to read it (even if you
+specify the survey type).
+In this case, you can try renaming or moving files to match the expected format.
+MobiSurvStd will then be able to properly guess the survey type and read it (assuming the files'
+content is the same).
+<p>If you are not able to read your survey or if you want MobiSurvStd to support a new survey type /
+format, feel free to <a href="https://github.com/MobiSurvStd/MobiSurvStd/issues">open an issue on
+GitHub</a>.</p>
+</div>
+
+<p>All surveys can be processed <em>without spatial / zonal data</em> when running with the <code>--skip-spatial</code> flag.</p>
+<p><label class="checkbox-label"><input class="checkbox-img" type="checkbox"><img src="images/survey_map.jpg" alt="Map of all local surveys tested with MobiSurvStd"><span class="img-wrapper"><img src="images/survey_map.jpg" alt="Map of all local surveys tested with MobiSurvStd"></span></label></p>
+<h2 id="enquête-mobilité-des-personnes-2019-emp"><a class="header" href="#enquête-mobilité-des-personnes-2019-emp">Enquête mobilité des personnes 2019 (EMP)</a></h2>
+<p>Code: <code>emp2019</code></p>
+<p>Link: <a href="https://www.statistiques.developpement-durable.gouv.fr/resultats-detailles-de-lenquete-mobilite-des-personnes-de-2019">https://www.statistiques.developpement-durable.gouv.fr/resultats-detailles-de-lenquete-mobilite-des-personnes-de-2019</a></p>
+<p>Tested version: November 2024</p>
+<p>Expected format:</p>
+<pre><code class="language-bash">emp_2019/
+├── *k_deploc_public_V4.csv  # The `*` character can be anything (there is a typo in the original filename)
+├── k_individu_public_V3.csv
+├── q_2rmot_public_V3.csv
+├── q_menage_public_V3.csv
+├── q_voitvul_public_V3.csv
+├── tcm_ind_kish_public_V3.csv
+├── tcm_ind_public_V3.csv
+└── tcm_men_public_V3.csv
+</code></pre>
+<p>Notes:</p>
+<ul>
+<li>Many variables from the original survey data are not read because they are not part of any other
+survey type.</li>
+<li>The survey does not guarantee any representativeness at the regional level.</li>
+<li>Only one person per household is surveyed for their trips and additional characteristics.</li>
+<li>The car type is not specified. Cars can include passenger cars, utilitary cars and recreational
+cars.</li>
+<li>The survey includes data on 58 “voiturettes”, 59 “quads”, and 1 “tricycle” as a special vehicle
+category, which is not read by MobiSurvStd.</li>
+<li>Walking legs are not specified in the survey data for trips combining walking with other modes.</li>
+<li>The surveyed day is drawn among the days of the week before the interview <em>on which the person
+traveled</em>.
+Therefore, the persons with no trip (<code>nb_trips = 0</code>) are the persons who did not travel during the
+whole week, not the persons who did not travel during an average day.
+These persons have no surveyed day (<code>trips_weekday</code> is null).</li>
+<li>A representative weekday (e.g., an average Monday) can be built from the union of:
+<ul>
+<li>the persons surveyed for that weekday (<code>trips_weekday</code> of the household is <code>"monday"</code>), with
+their trips, weighted by <code>sample_weight_day</code>;</li>
+<li>the persons who did not travel on that weekday (<code>traveled_on_monday</code> is false), with no trip,
+weighted by <code>sample_weight_surveyed</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="enquêtes-mobilité-certifiés-cerema-emc²"><a class="header" href="#enquêtes-mobilité-certifiés-cerema-emc²">Enquêtes mobilité certifiés Cerema (EMC²)</a></h2>
+<p>Code: <code>emc2</code></p>
+<p>Link: <a href="https://www.cerema.fr/fr/activites/mobilites/connaissance-modelisation-evaluation-mobilite/enquetes-mobilite-emc2">https://www.cerema.fr/fr/activites/mobilites/connaissance-modelisation-evaluation-mobilite/enquetes-mobilite-emc2</a></p>
+<p>Download link (for researchers): <a href="https://data.progedo.fr/series/adisp/enquetes-menages-deplacements-emd-enquetes-mobilite-certifiee-cerema-emc">https://data.progedo.fr/series/adisp/enquetes-menages-deplacements-emd-enquetes-mobilite-certifiee-cerema-emc</a></p>
+<p>Expected format (recent Progedo exports):</p>
+<pre><code class="language-bash">my_emc2_survey/
+├── *-Donnees_CSV  # Subdirectory names do not matter.
+│   └── fichiers_standards
+│       ├── *_std_depl.csv
+│       ├── *_std_men.csv
+│       ├── *_std_pers.csv
+│       └── *_std_traj.csv
+└── *-Documentation  # Subdirectory names do not matter.
+    └── SIG
+        ├── *_ZF(_*)?.(TAB|shp)           # Optional "Zones fines" file
+        ├── *_GT(_*)?.(TAB|shp)           # Optional "Générateurs de trafic" file
+        ├── *_GT_externes(_*)?.(TAB|shp)  # Optional "Générateurs de trafic" external file
+        └── *_DTIR(_*)?.(TAB|shp)         # Optional "Zones de tirage" file
+</code></pre>
+<p>Expected format (older Progedo exports):</p>
+<pre><code class="language-bash">my_emc2_survey/
+├── Csv
+│   └── Fichiers_Standard
+│       ├── *_std_depl.csv
+│       ├── *_std_men.csv
+│       ├── *_std_pers.csv
+│       └── *_std_traj.csv
+└── Doc
+    └── SIG
+        ├── *_ZF(_*)?.(TAB|shp)    # Optional "Zones fines" file
+        ├── *_GT(_*)?.(TAB|shp)    # Optional "Générateurs de trafic" file
+        └── *_DTIR(_*)?.(TAB|shp)  # Optional "Zones de tirage" file
+</code></pre>
+<p>Tested surveys:</p>
+<ul>
+<li>Alençon 2018</li>
+<li>Angers 2022</li>
+<li>Angoulême 2023  <strong>New</strong></li>
+<li>Besançon 2018</li>
+<li>Bordeaux 2021</li>
+<li>Bouzonville 2019</li>
+<li>Brest 2018</li>
+<li>Chambéry 2022</li>
+<li>Clermont-Ferrand 2023</li>
+<li>Évreux 2018</li>
+<li>Gap 2018</li>
+<li>Grenoble 2020</li>
+<li>Lannion 2022</li>
+<li>Le Havre 2018</li>
+<li>Lens / Artois 2023  <strong>New</strong></li>
+<li>Marseille 2020</li>
+<li>Nevers 2023  <strong>New</strong></li>
+<li>Nice 2023</li>
+<li>Pointe-à-Pitre 2021</li>
+<li>Poitiers 2018</li>
+<li>Reims 2021</li>
+<li>Rennes 2018</li>
+<li>Sables d’Olonne 2021</li>
+<li>Saint-Étienne 2021</li>
+<li>Strasbourg 2024</li>
+<li>Toulouse 2023</li>
+<li>Tours 2019</li>
+<li>Valenciennes 2019</li>
+<li>Vannes 2023  <strong>New</strong></li>
+<li>Vendée 2020</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>The survey detailed zones correspond to the “zones fines” (“ZF”), which are usually the size of
+IRIS zones or smaller.</li>
+<li>For most surveys, there are special locations corresponding to “Générateurs de trafic” (“GT”),
+which represent e.g., train stations or hospitals.</li>
+<li>Draw zones correspond to the survey’s “zones de tirage”.</li>
+<li>For each trips, the non-walking legs are recorded. MobiSurvStd reconstruct the walking legs using
+the access / egress walking time variables. This means that the leg travel time is known only for
+the walking legs (as it is not a recorded variable for the other legs).</li>
+</ul>
+<h2 id="enquête-globale-transport-2018-2020"><a class="header" href="#enquête-globale-transport-2018-2020">Enquête Globale Transport 2018-2020</a></h2>
+<p>Code: <code>egt2020</code></p>
+<p>Link: <a href="https://data.progedo.fr/studies/doi/10.13144/lil-1581">https://data.progedo.fr/studies/doi/10.13144/lil-1581</a></p>
+<p>Expected format (version 3):</p>
+<pre><code class="language-bash">egt_2020/
+├── 01_menage_egt1820.csv
+├── 02_individu_egt1820.csv
+├── 03_deplacement_egt1820.csv
+├── 04_trajet_egt1820.csv
+├── 05_voiture_egt1820.csv
+├── 06_drm_egt1820.csv
+└── 07_velo_egt1820.csv
+</code></pre>
+<p>Expected format (older versions):</p>
+<pre><code class="language-bash">egt_2020/
+└── Csv
+    ├── a_menage_egt1820.csv
+    ├── b_individu_egt1820.csv
+    ├── c_deplacement_egt1820.csv
+    ├── d_trajet_egt1820.csv
+    ├── e_voiture_egt1820.csv
+    ├── f_drm_egt1820.csv
+    └── g_velo_egt1820.csv
+</code></pre>
+<p>Notes:</p>
+<ul>
+<li>Due to some households not being surveyed with the expected method (phone vs face to face), you
+should not rely to much on the sample weights of this survey.</li>
+<li>There is no draw zones because the survey was interrupted before the end due to Covid-19.</li>
+<li>There is no detailed zone but the coordinates of the origins / destinations are known (rounded to
+100 meters).</li>
+<li>The car types are not specified but utilitary cars and recreational cars ar excluded.</li>
+<li>Motorcycles’ parking data is not read because the survey’s documentation is incorrect.</li>
+<li>Variable <code>main_mode_group</code> can differ from the original <code>MODP_H7</code> variable because MobiSurvStd
+uses a different definition of mode groups and a different methodology to identify the main mode.</li>
+<li>The <code>start_insee</code> and <code>end_insee</code> values are derived from the leg’s coordinates, using INSEE data
+from 2025.</li>
+<li>The <code>work_insee</code> and <code>study_insee</code> values are derived from the given coordinates, using INSEE data
+from 2025. There can be some errors because of the 100m rounding.</li>
+</ul>
+<h2 id="enquête-mobilité-par-gps-2023-emg"><a class="header" href="#enquête-mobilité-par-gps-2023-emg">Enquête Mobilité par GPS 2023 (EMG)</a></h2>
+<p>Code: <code>emg2023</code></p>
+<p>Link: <a href="https://www.institutparisregion.fr/mobilite-et-transports/deplacements/enquete-regionale-sur-la-mobilite-des-franciliens/">https://www.institutparisregion.fr/mobilite-et-transports/deplacements/enquete-regionale-sur-la-mobilite-des-franciliens/</a></p>
+<p>Expected format:</p>
+<pre><code class="language-bash">emg/
+├── EMG_BD_Deplacements_*.xlsx
+├── EMG_BD_Individus_*.xlsx
+└── EMG_Distance.xlsx     # Optional, gives trip euclidean distances.
+</code></pre>
+<p>Notes:</p>
+<ul>
+<li>Only one person per household is surveyed. Characteristics of all other members are unknown.</li>
+<li>The number of cars and motorcycles per household is known but their characteristics are unknown.</li>
+<li>The survey is conducted <strong>over a week</strong> (seven days) for each person. The trip-level variable
+<code>trip_date</code> can be used to identify the day of the trips. The person might not have traveled each
+day of the surveyed week.</li>
+<li>Variables <code>traveled_on_{weekday}</code> are defined from the recorded days of the surveyed week: they
+are <code>true</code> if at least one trip was recorded and <code>false</code> if the day was explicitly recorded
+without trip. They are null if the GPS trace was missing, if the person was outside
+Île-de-France, if the weekday was not surveyed, or if the weekday was surveyed several times
+with inconsistent results.
+To build a representative weekday, select the persons with a non-null <code>traveled_on_{weekday}</code>
+value, weighted by <code>sample_weight_surveyed</code> (rescaled to account for the null values), and the
+trips with the corresponding <code>trip_weekday</code>.</li>
+<li>Trips done before 4 a.m. are usually registered to the previous day, with a departure / arrival
+time value over 24h.</li>
+<li>Origins and destinations are defined at the INSEE level.</li>
+</ul>
+<p><em>Implementation in MobiSurvStd by Sebastian Hörl</em></p>
+<h2 id="enquêtes-déplacements-grands-territoires-edgt"><a class="header" href="#enquêtes-déplacements-grands-territoires-edgt">Enquêtes Déplacements Grands Territoires (EDGT)</a></h2>
+<p>Code: <code>edgt</code></p>
+<p>Link: <a href="https://www.cerema.fr/fr/activites/mobilites/connaissance-modelisation-evaluation-mobilite/enquetes-mobilite-emc2">https://www.cerema.fr/fr/activites/mobilites/connaissance-modelisation-evaluation-mobilite/enquetes-mobilite-emc2</a></p>
+<p>Download link (for researchers): <a href="https://data.progedo.fr/studies?q=edgt">https://data.progedo.fr/studies?q=edgt</a></p>
+<p>Expected format:</p>
+<pre><code class="language-bash">my_edgt_survey/
+├── Csv
+│   ├── Fichiers_Standard_Face_a_face
+│   │   ├── *_std_faf_depl.csv
+│   │   ├── *_std_faf_men.csv
+│   │   ├── *_std_faf_pers.csv
+│   │   └── *_std_faf_traj.csv
+│   └── Fichiers_Standard_Telephone
+│       ├── *_std_tel_depl.csv
+│       ├── *_std_tel_men.csv
+│       ├── *_std_tel_pers.csv
+│       └── *_std_tel_traj.csv
+└── Doc
+    └── SIG
+        ├── *(_ZF|zones_fines).(TAB|shp|MIF)        # Optional "Zones fines" file (the actual regex is more complex)
+        ├── *(_GT|générateur*).(TAB|shp|MIF)        # Optional "Générateurs de trafic" file (the actual regex is more complex)
+        └── *(_DTIR|_secteurstirage).(TAB|shp|MIF)  # Optional "Zones de tirage" file
+</code></pre>
+<p>Tested surveys:</p>
+<ul>
+<li>Amiens 2010</li>
+<li>Angers 2012</li>
+<li>Annecy 2017</li>
+<li>Annemasse 2016</li>
+<li>Bayonne 2010</li>
+<li>Clermont-Ferrand 2012</li>
+<li>Dijon 2016</li>
+<li>Dunkerque 2015</li>
+<li>Lyon 2015</li>
+<li>Marseille 2009</li>
+<li>Metz 2017</li>
+<li>Montpellier 2014</li>
+<li>Nancy 2013</li>
+<li>Nantes 2015 (Also available in an
+<a href="https://www.data.gouv.fr/datasets/enquete-deplacements-2015-en-loire-atlantique">anonymized open-data format</a>)</li>
+<li>Nice 2009</li>
+<li>Saint-Denis-de-la-Réunion 2016</li>
+<li>Saint-Quentin-en-Yvelines 2010</li>
+<li>Valence 2014</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>The survey detailed zones correspond to the “zones fines” (“ZF”), which are usually the size of
+IRIS zones or smaller.</li>
+<li>For most surveys, there are special locations corresponding to “Générateurs de trafic” (“GT”),
+which represent e.g., train stations or hospitals.</li>
+<li>Draw zones correspond to the survey’s “zones de tirage”.</li>
+<li>For each trips, the non-walking legs are recorded. MobiSurvStd reconstruct the walking legs using
+the access / egress walking time variables. This means that the leg travel time is known only for
+the walking legs (as it is not a recorded variable for the other legs).</li>
+</ul>
+<h2 id="enquêtes-déplacements-villes-moyennes-edvm"><a class="header" href="#enquêtes-déplacements-villes-moyennes-edvm">Enquêtes Déplacements Villes Moyennes (EDVM)</a></h2>
+<p>Code: <code>edvm</code></p>
+<p>Link: <a href="https://www.cerema.fr/fr/activites/mobilites/connaissance-modelisation-evaluation-mobilite/enquetes-mobilite-emc2">https://www.cerema.fr/fr/activites/mobilites/connaissance-modelisation-evaluation-mobilite/enquetes-mobilite-emc2</a></p>
+<p>Download link (for researchers): <a href="https://data.progedo.fr/studies?q=edvm">https://data.progedo.fr/studies?q=edvm</a></p>
+<p>Expected format:</p>
+<pre><code class="language-bash">my_edvm_survey/
+├── Csv
+│   └── Fichiers_Standard
+│       ├── *_std_depl.csv
+│       ├── *_std_men.csv
+│       ├── *_std_pers.csv
+│       └── *_std_traj.csv
+└── Doc
+    └── SIG
+        ├── *(_ZF|zones_fines).(TAB|shp|MIF)  # Optional "Zones fines" file (the actual regex is more complex)
+        ├── *(_GT|générateur*).(TAB|shp|MIF)  # Optional "Générateurs de trafic" file (the actual regex is more complex)
+        └── *_DTIR.(TAB|shp|MIF)              # Optional "Zones de tirage" file
+</code></pre>
+<p>Tested surveys:</p>
+<ul>
+<li>Ajaccio 2017</li>
+<li>Albi 2011</li>
+<li>Angoulême 2012</li>
+<li>Arras 2014</li>
+<li>Beauvais 2010</li>
+<li>Béziers 2014</li>
+<li>Bourg-en-Bresse 2017</li>
+<li>Carcassonne 2015</li>
+<li>Châlon-sur-Saône 2014</li>
+<li>Cherbourg 2016</li>
+<li>Créil 2017</li>
+<li>Dinan 2010</li>
+<li>La Rochelle 2011</li>
+<li>La-Roche-sur-Yon 2013</li>
+<li>Laval 2011</li>
+<li>Le Creusot 2012</li>
+<li>Les Sables d’Olonne 2011</li>
+<li>Longwy 2014</li>
+<li>Niort 2016</li>
+<li>Puisaye-Forterre et Aillantais 2012</li>
+<li>Quimper 2013</li>
+<li>Roanne 2012</li>
+<li>Saint-Brieuc 2012</li>
+<li>Saintes 2016</li>
+<li>Saint-Louis 2011</li>
+<li>Thionville 2012</li>
+<li>Var 2012</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>The survey detailed zones correspond to the “zones fines” (“ZF”), which are usually the size of
+IRIS zones or smaller.</li>
+<li>For most surveys, there are special locations corresponding to “Générateurs de trafic” (“GT”),
+which represent e.g., train stations or hospitals.</li>
+<li>Draw zones correspond to the survey’s “zones de tirage”.</li>
+<li>For each trips, the non-walking legs are recorded. MobiSurvStd reconstruct the walking legs using
+the access / egress walking time variables. This means that the leg travel time is known only for
+the walking legs (as it is not a recorded variable for the other legs).</li>
+</ul>
+<h2 id="enquêtes-ménages-déplacements-emd"><a class="header" href="#enquêtes-ménages-déplacements-emd">Enquêtes Ménages Déplacements (EMD)</a></h2>
+<p>Code: <code>emd</code></p>
+<p>Link: <a href="https://www.cerema.fr/fr/activites/mobilites/connaissance-modelisation-evaluation-mobilite/enquetes-mobilite-emc2">https://www.cerema.fr/fr/activites/mobilites/connaissance-modelisation-evaluation-mobilite/enquetes-mobilite-emc2</a></p>
+<p>Download link (for researchers): <a href="https://data.progedo.fr/studies?q=emd">https://data.progedo.fr/studies?q=emd</a></p>
+<p>Expected format:</p>
+<pre><code class="language-bash">my_emd_survey/
+├── Csv
+│   └── Fichiers_Standard
+│       ├── *_std_depl.csv
+│       ├── *_std_men.csv
+│       ├── *_std_pers.csv
+│       └── *_std_traj.csv
+└── Doc
+    └── SIG
+        ├── *(_ZF|zones_fines).(TAB|shp|MIF)  # Optional "Zones fines" file (the actual regex is more complex)
+        ├── *(_GT|générateur*).(TAB|shp|MIF)  # Optional "Générateurs de trafic" file (the actual regex is more complex)
+        └── *(_DTIR|secteur_*).(TAB|shp|MIF)  # Optional "Zones de tirage" file
+</code></pre>
+<p>Tested surveys:</p>
+<ul>
+<li>Douai 2012</li>
+<li>Fort-de-France 2014</li>
+<li>Grenoble 2010</li>
+<li>Lille 2016</li>
+<li>Nîmes 2015</li>
+<li>Rouen 2017</li>
+<li>Saint-Étienne 2010</li>
+<li>Strasbourg 2009</li>
+<li>Toulouse 2013</li>
+<li>Valenciennes 2011</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>The survey detailed zones correspond to the “zones fines” (“ZF”), which are usually the size of
+IRIS zones or smaller.</li>
+<li>For most surveys, there are special locations corresponding to “Générateurs de trafic” (“GT”),
+which represent e.g., train stations or hospitals.</li>
+<li>Draw zones correspond to the survey’s “zones de tirage”.</li>
+<li>For each trips, the non-walking legs are recorded. MobiSurvStd reconstruct the walking legs using
+the access / egress walking time variables. This means that the leg travel time is known only for
+the walking legs (as it is not a recorded variable for the other legs).</li>
+</ul>
+<h2 id="enquête-globale-transport-2010"><a class="header" href="#enquête-globale-transport-2010">Enquête Globale Transport 2010</a></h2>
+<p>Code: <code>egt2010</code></p>
+<p>Link: <a href="https://data.progedo.fr/studies/doi/10.13144/lil-0883">https://data.progedo.fr/studies/doi/10.13144/lil-0883</a></p>
+<p>Expected format:</p>
+<pre><code class="language-bash">egt_2010/
+├── Csv  # Or Format_csv
+│   ├── deplacements_semaine.csv  # Filenames are case-insensitive (the first letter can be capitalized).
+│   ├── menages_semaine.csv
+│   ├── personnes_semaine.csv
+│   └── trajets_semaine.csv
+├── Doc
+│   └── Carreaux_shape_mifmid
+│       └── carr100m.shp       # Option 1: Carreaux are in a shapefile within a directory.
+└── Carreaux_shape_mifmid.zip  # Option 2: Carreaux are in a zipfile within the parent directory.
+</code></pre>
+<p>Notes:</p>
+<ul>
+<li>The detailed zones correspond to the 100m by 100m cells.</li>
+<li>For now, only the weekday trips are standardized.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="howto.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="comparison.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="howto.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="comparison.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-09f2665d.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

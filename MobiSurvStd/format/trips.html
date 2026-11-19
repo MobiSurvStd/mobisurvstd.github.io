@@ -1,0 +1,1439 @@
+<!DOCTYPE HTML>
+<html lang="en" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Trips - MobiSurvStd</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "rust";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex-5a1aa44a.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-d1dade75.js"></script>
+    <link rel="canonical" href="https://nemobi.lucasjavaudin.com/format/trips.html">
+</head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">MobiSurvStd</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/LucasJavaudin/MobiSurvStd" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+<div id="nemobi-rename-banner" style="margin: 1em 0 2em; padding: 0.8em 1.2em;
+  border-left: 5px solid #e69f00; background: var(--quote-bg); color: var(--fg);">
+<p style="margin: 0.3em 0;">⚠️ <strong>MobiSurvStd has been renamed to Nemobi.</strong>
+This documentation is frozen at MobiSurvStd v1.6.1 and is no longer updated.</p>
+<p style="margin: 0.3em 0;">→ <a id="nemobi-rename-link" href="https://nemobi.lucasjavaudin.com/format/trips.html"><strong>See this page in the
+Nemobi documentation</strong></a> · <a href="https://nemobi.lucasjavaudin.com/migration.html">Migration guide</a></p>
+</div>
+<script>
+  (function () {
+    var link = document.getElementById("nemobi-rename-link");
+    if (link && window.location.hash) { link.href = link.href + window.location.hash; }
+  })();
+</script>
+
+                        <h1 id="trips"><a class="header" href="#trips">Trips</a></h1>
+<p>Sort order: <code>trip_id</code></p>
+<h2 id="indexing"><a class="header" href="#indexing">Indexing</a></h2>
+<h3 id="trip_id"><a class="header" href="#trip_id"><code>trip_id</code></a></h3>
+<p>Unique identifier of the trip.</p>
+<ul>
+<li><strong>Type:</strong> UInt32</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>Values range from 1 to the number of trips.</li>
+</ul>
+</li>
+</ul>
+<h3 id="person_id"><a class="header" href="#person_id"><code>person_id</code></a></h3>
+<p>Identifier of the person that performed the trip.</p>
+<ul>
+<li><strong>Type:</strong> UInt32</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>There exists a person with this <code>person_id</code>.</li>
+<li>The value is not null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="household_id"><a class="header" href="#household_id"><code>household_id</code></a></h3>
+<p>Identifier of the household of the person that performed the trip.</p>
+<ul>
+<li><strong>Type:</strong> UInt32</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is not null.</li>
+<li>The value is equal to the <code>household_id</code> value of the person with id <code>person_id</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="trip_index"><a class="header" href="#trip_index"><code>trip_index</code></a></h3>
+<p>Index of the trip among the person’s trips.</p>
+<p>Trips with smaller index are performed first.</p>
+<ul>
+<li><strong>Type:</strong> UInt8</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>Values are unique <em>within a person</em> and range from 1 to the number of trips performed by that
+person.</li>
+<li>The value is not null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="first_trip"><a class="header" href="#first_trip"><code>first_trip</code></a></h3>
+<p>Whether the trip is the first one of the person.</p>
+<ul>
+<li><strong>Type:</strong> Boolean</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is not null.</li>
+<li>The value is <code>true</code> if and only if <code>trip_index</code> is 1.</li>
+</ul>
+</li>
+</ul>
+<h3 id="last_trip"><a class="header" href="#last_trip"><code>last_trip</code></a></h3>
+<p>Whether the trip is the last one of the person.</p>
+<ul>
+<li><strong>Type:</strong> Boolean</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is not null.</li>
+<li>The value is <code>true</code> if and only if <code>trip_index</code> is equal to the number of trips for this person.</li>
+</ul>
+</li>
+</ul>
+<h3 id="home_sequence_index"><a class="header" href="#home_sequence_index"><code>home_sequence_index</code></a></h3>
+<p>The cumulative number of times that the person has started a trip from their home over the course of
+a day.</p>
+<p>This variable is designed to identify sequences of trips that begin and end at home (“home-based
+tours”).</p>
+<p>The value starts at 0 and increments by 1 each time a trip begins with
+<code>origin_purpose_group == "home"</code>.</p>
+<p>Examples:</p>
+<ol>
+<li>
+<p>Trips:
+<code>home → work</code> → <code>work → home</code></p>
+<p><code>home_sequence_index</code>: 1, 1</p>
+<p>(One tour starting and ending at home.)</p>
+</li>
+<li>
+<p>Trips:
+<code>home → work</code> → <code>work → home</code> → <code>home → leisure</code> → <code>leisure → home</code></p>
+<p><code>home_sequence_index</code>: 1, 1, 2, 2</p>
+<p>(Two distinct tours, both home-based.)</p>
+</li>
+<li>
+<p>Trips:
+<code>work → home</code> → <code>home → work</code></p>
+<p><code>home_sequence_index</code>: 0, 1</p>
+<p>(The value is 0 if the first trip of the day is not from home.)</p>
+</li>
+</ol>
+<ul>
+<li><strong>Type:</strong> UInt8</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is equal to the cumulative number of times that the trip’s origin purpose group is
+<code>"home"</code>, over a person’s trips.</li>
+</ul>
+</li>
+</ul>
+<h3 id="original_trip_id"><a class="header" href="#original_trip_id"><code>original_trip_id</code></a></h3>
+<p>Identifier of the trip in the original data.</p>
+<ul>
+<li><strong>Type:</strong> Struct whose fields depend on the survey</li>
+</ul>
+<h2 id="purpose"><a class="header" href="#purpose">Purpose</a></h2>
+<h3 id="origin_purpose"><a class="header" href="#origin_purpose"><code>origin_purpose</code></a></h3>
+<p>Purpose of the activity performed at the trip’s origin.</p>
+<p>See <a href="../purposes.html">Purpose comparison</a> for the original survey modalities mapped to each purpose.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"home:main"</code>: the person is at their usual home location</li>
+<li><code>"home:secondary"</code>: the person is at a secondary home</li>
+<li><code>"work:usual"</code>: the person is working at the usual workplace</li>
+<li><code>"work:telework"</code>: the person is working from home</li>
+<li><code>"work:secondary"</code>: the person is working at a secondary workplace</li>
+<li><code>"work:business_meal"</code>: the person is having a meal in a business context</li>
+<li><code>"work:other"</code>: the person is working at another place</li>
+<li><code>"work:professional_tour"</code>: the person is doing trips for a professional tour (“tournée
+professionnelle”)</li>
+<li><code>"education:childcare"</code>: the person (child) is at a daycare / nursery school</li>
+<li><code>"education:usual"</code>: the person is studying at their usual study location</li>
+<li><code>"education:other"</code>: the person is studying at a different location</li>
+<li><code>"shopping:daily"</code>: the person is shopping for daily needs (e.g., bread, newspaper)</li>
+<li><code>"shopping:weekly"</code>: the person is shopping for weekly needs (e.g., groceries)</li>
+<li><code>"shopping:specialized"</code>: the person is shopping for occasional needs (e.g., bookstore,
+clothing)</li>
+<li><code>"shopping:unspecified"</code>: the person is shopping for goods without further specification (daily,
+weekly, or specialized)</li>
+<li><code>"shopping:pickup"</code>: the person is picking up purchases from online shopping (“drive”,
+“point relais”)</li>
+<li><code>"shopping:no_purchase"</code>: the person is visiting a store without doing any purchase</li>
+<li><code>"shopping:tour_no_purchase"</code>: the person is doing a tour of stores with buying anything</li>
+<li><code>"task:healthcare:hospital"</code>: the person is at a hospital for healthcare reasons</li>
+<li><code>"task:healthcare:doctor"</code>: the person is at a medical appointment (not in a hospital)</li>
+<li><code>"task:healthcare"</code>: other healthcare-related activities</li>
+<li><code>"task:procedure"</code>: the person is doing an administrative procedure or other procedure (apart
+from finding a job)</li>
+<li><code>"task:job_search"</code>: the person is finding a job</li>
+<li><code>"task:other"</code>: other task activity</li>
+<li><code>"leisure:sport_or_culture"</code>: the person is involved in sport, cultural, or associative activity</li>
+<li><code>"leisure:walk_or_driving_lesson"</code>: the person is doing a walk (“promenade”) or taking driving
+lessons</li>
+<li><code>"leisure:lunch_break"</code>: the person is having lunch before / after work</li>
+<li><code>"leisure:restaurant"</code>: the person is having diner outside home</li>
+<li><code>"leisure:visiting"</code>: the person is visiting relatives, friends, or any other person</li>
+<li><code>"leisure:visiting:parents"</code>: the person is visiting relatives</li>
+<li><code>"leisure:visiting:friends"</code>: the person is visiting friends</li>
+<li><code>"leisure:other"</code>: other leisure activity</li>
+<li><code>"escort:activity:drop_off"</code>: the person is dropping off someone to an activity</li>
+<li><code>"escort:activity:pick_up"</code>: the person is picking up someone from an activity</li>
+<li><code>"escort:transport:drop_off"</code>: the person is dropping off someone to a transportation mode</li>
+<li><code>"escort:transport:pick_up"</code>: the person is picking up someone from a transportation mode</li>
+<li><code>"escort:unspecified:drop_off"</code>: the person is dropping off someone (either to an activity or
+a transportation mode)</li>
+<li><code>"escort:unspecified:pick_up"</code>: the person is picking up someone (either from an activity or a
+transportation mode)</li>
+<li><code>"other"</code>: other purpose not in the list</li>
+</ul>
+</li>
+</ul>
+<h3 id="origin_purpose_group"><a class="header" href="#origin_purpose_group"><code>origin_purpose_group</code></a></h3>
+<p>Purpose group of the activity performed at the trip’s origin.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"home"</code></li>
+<li><code>"work"</code></li>
+<li><code>"education"</code></li>
+<li><code>"shopping"</code></li>
+<li><code>"task"</code></li>
+<li><code>"leisure"</code></li>
+<li><code>"escort"</code></li>
+<li><code>"other"</code></li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The values are consistent with <code>origin_purpose</code>.</li>
+<li>If <code>origin_purpose</code> is not null, then the value is not null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="origin_activity_duration"><a class="header" href="#origin_activity_duration"><code>origin_activity_duration</code></a></h3>
+<p>Duration of the activity performed at the trip’s origin, in minutes.</p>
+<p>If this is the first trip of the day, the value is null.
+Otherwise, the value is equal to the difference between the departure time of this trip and the
+arrival time of the previous trip.</p>
+<ul>
+<li><strong>Type:</strong> UInt16</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>first_trip</code> is <code>true</code>, then the value is null.</li>
+<li>The value is equal to the difference between <code>departure_time</code> for the current trip and
+<code>arrival_time</code> for the previous trip.</li>
+</ul>
+</li>
+</ul>
+<h3 id="destination_purpose"><a class="header" href="#destination_purpose"><code>destination_purpose</code></a></h3>
+<p>Purpose of the activity performed at the trip’s destination.</p>
+<p>Note that in most cases, the destination purpose should be equal to the origin purpose of the next
+trip (if any).
+Rare exceptions can occur when someone is moving to a different location while the activity is
+performed (e.g., for bus drivers).
+MobiSurvStd will show warning messages indicating how many trips does not match the constraint.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li>Same modalities as <a href="#origin_purpose"><code>origin_purpose</code></a>.</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>Same guarantees as <a href="#origin_purpose"><code>origin_purpose</code></a>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="destination_purpose_group"><a class="header" href="#destination_purpose_group"><code>destination_purpose_group</code></a></h3>
+<p>Purpose group of the activity performed at the trip’s destination.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"home"</code></li>
+<li><code>"work"</code></li>
+<li><code>"education"</code></li>
+<li><code>"shopping"</code></li>
+<li><code>"task"</code></li>
+<li><code>"leisure"</code></li>
+<li><code>"escort"</code></li>
+<li><code>"other"</code></li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>Same guarantees as <a href="#origin_purpose_group"><code>origin_purpose_group</code></a>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="destination_activity_duration"><a class="header" href="#destination_activity_duration"><code>destination_activity_duration</code></a></h3>
+<p>Duration of the activity performed at the trip’s destination, in minutes.</p>
+<p>If this is the last trip of the day, the value is null.
+Otherwise, the value is equal to the difference between the arrival time of the next trip and the
+departure time of this trip (i.e., it is equal to the <code>origin_activity_duration</code> value of the next
+trip).</p>
+<ul>
+<li><strong>Type:</strong> UInt16</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>last_trip</code> is <code>true</code>, then the value is null.</li>
+<li>The value is equal to the difference between <code>departure_time</code> for the next trip and
+<code>arrival_time</code> for the current trip.</li>
+</ul>
+</li>
+</ul>
+<h2 id="escorting"><a class="header" href="#escorting">Escorting</a></h2>
+<h3 id="origin_escort_purpose"><a class="header" href="#origin_escort_purpose"><code>origin_escort_purpose</code></a></h3>
+<p>Purpose of the activity performed at the trip’s origin by the person who is escorted.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li>Same modalities as <a href="#origin_purpose"><code>origin_purpose</code></a>, excluding all the <code>"escort:*"</code> purposes.</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>origin_purpose_group</code> is not <code>"escort"</code>, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="origin_escort_purpose_group"><a class="header" href="#origin_escort_purpose_group"><code>origin_escort_purpose_group</code></a></h3>
+<p>Purpose group of the activity performed at the trip’s origin by the person who is escorted.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"home"</code></li>
+<li><code>"work"</code></li>
+<li><code>"education"</code></li>
+<li><code>"shopping"</code></li>
+<li><code>"task"</code></li>
+<li><code>"leisure"</code></li>
+<li><code>"other"</code></li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>origin_purpose_group</code> is not <code>"escort"</code>, then the value is null.</li>
+<li>The values are consistent with <code>origin_escort_purpose</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="destination_escort_purpose"><a class="header" href="#destination_escort_purpose"><code>destination_escort_purpose</code></a></h3>
+<p>Purpose of the activity performed at the trip’s destination by the person who is escorted.</p>
+<p>Note that in most cases, the destination escort purpose should be equal to the origin escort purpose
+of the next trip (if any).
+Rare exceptions can occur when someone is moving to a different location while the activity is
+performed (e.g., for bus drivers).
+MobiSurvStd will show warning messages indicating how many trips does not match the constraint.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li>Same modalities as <a href="#origin_purpose"><code>origin_purpose</code></a>, excluding all the <code>"escort:*"</code>
+purposes.</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>destination_purpose_group</code> is not <code>"escort"</code>, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="destination_escort_purpose_group"><a class="header" href="#destination_escort_purpose_group"><code>destination_escort_purpose_group</code></a></h3>
+<p>Purpose group of the activity performed at the trip’s destination by the person who is escorted.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"home"</code></li>
+<li><code>"work"</code></li>
+<li><code>"education"</code></li>
+<li><code>"shopping"</code></li>
+<li><code>"task"</code></li>
+<li><code>"leisure"</code></li>
+<li><code>"other"</code></li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>destination_purpose_group</code> is not <code>"escort"</code>, then the value is null.</li>
+<li>The values are consistent with <code>destination_escort_purpose</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="shopping"><a class="header" href="#shopping">Shopping</a></h2>
+<h3 id="origin_shop_type"><a class="header" href="#origin_shop_type"><code>origin_shop_type</code></a></h3>
+<p>Type of shop where the activity at origin was performed (for shopping activities).</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"small_shop"</code>: “petit commerce” / “supérette”</li>
+<li><code>"supermarket"</code>: “supermarché”</li>
+<li><code>"hypermarket"</code>: “hypermarché” / “grande surface”</li>
+<li><code>"supermarket_or_hypermarket"</code>: “supermarché” / “hypermarché” / “grande surface”</li>
+<li><code>"mall"</code>: “centre commercial” / “grand magasin”</li>
+<li><code>"market"</code>: “marché”</li>
+<li><code>"drive_in"</code>: “drive-in” / “point relais”</li>
+<li><code>"private"</code>: “particulier”</li>
+<li><code>"other"</code></li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>origin_purpose_group</code> is not <code>"shopping"</code>, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="destination_shop_type"><a class="header" href="#destination_shop_type"><code>destination_shop_type</code></a></h3>
+<p>Type of shop where the activity at destination was performed (for shopping activities).</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"small_shop"</code>: “petit commerce”</li>
+<li><code>"supermarket"</code>: “supermarché”</li>
+<li><code>"hypermarket"</code>: “hypermarché” / “grande surface”</li>
+<li><code>"mall"</code>: “centre commercial” / “grand magasin”</li>
+<li><code>"market"</code>: “marché”</li>
+<li><code>"drive_in"</code>: “drive-in” / “point relais”</li>
+<li><code>"private"</code>: “particulier”</li>
+<li><code>"other"</code></li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>destination_purpose_group</code> is not <code>"shopping"</code>, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h2 id="origin-location"><a class="header" href="#origin-location">Origin location</a></h2>
+<h3 id="origin_lng"><a class="header" href="#origin_lng"><code>origin_lng</code></a></h3>
+<p>Longitude of the trip’s origin.</p>
+<p>The accuracy depends on the survey type.
+For EGT surveys, the coordinates are guaranteed to be within 100 meters of the actual location.
+For other surveys, the coordinates represent the centroid of <code>origin_detailed_zone</code> (or the exact
+coordinates defined by <code>origin_special_location</code> when it is non-null).</p>
+<ul>
+<li><strong>Type:</strong> Float64</li>
+</ul>
+<h3 id="origin_lat"><a class="header" href="#origin_lat"><code>origin_lat</code></a></h3>
+<p>Latitude of the trip’s origin.</p>
+<p>See <a href="#origin_lng"><code>origin_lng</code></a> for details on the accuracy of the value.</p>
+<ul>
+<li><strong>Type:</strong> Float64</li>
+</ul>
+<h3 id="origin_special_location"><a class="header" href="#origin_special_location"><code>origin_special_location</code></a></h3>
+<p>Identifier of the special location of the trip’s origin.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+</ul>
+<h3 id="origin_detailed_zone"><a class="header" href="#origin_detailed_zone"><code>origin_detailed_zone</code></a></h3>
+<p>Identifier of the detailed zone of the trip’s origin.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+</ul>
+<h3 id="origin_draw_zone"><a class="header" href="#origin_draw_zone"><code>origin_draw_zone</code></a></h3>
+<p>Identifier of the draw zone of the trip’s origin.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+</ul>
+<h3 id="origin_insee"><a class="header" href="#origin_insee"><code>origin_insee</code></a></h3>
+<p>INSEE code of the municipality of the trip’s origin.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>String is a <a href="../miscellaneous.html#insee-codes">valid INSEE code</a>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="origin_insee_name"><a class="header" href="#origin_insee_name"><code>origin_insee_name</code></a></h3>
+<p>Name of the municipality of the trip’s origin.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+</ul>
+<h3 id="origin_insee_density"><a class="header" href="#origin_insee_density"><code>origin_insee_density</code></a></h3>
+<p>Density category of the origin INSEE municipality.</p>
+<p>Density categories are defined by <a href="https://www.insee.fr/fr/information/8571524">INSEE</a>.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>1</code>: “commune densément peuplée”</li>
+<li><code>2</code>: “centre urbain intermédiaire”</li>
+<li><code>3</code>: “petite ville”</li>
+<li><code>4</code>: “ceinture urbaine”</li>
+<li><code>5</code>: “bourg rural”</li>
+<li><code>6</code>: “rural à habitat dispersé”</li>
+<li><code>7</code>: “rural à habitat très dispersé”</li>
+</ul>
+</li>
+</ul>
+<h3 id="origin_insee_urban_type"><a class="header" href="#origin_insee_urban_type"><code>origin_insee_urban_type</code></a></h3>
+<p>Urban type of the origin INSEE municipality.</p>
+<p>Urban types are defined by INSEE based on the
+<a href="https://www.insee.fr/fr/information/4802589">urban units</a>.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"central_city"</code>: “Ville-centre”</li>
+<li><code>"suburb"</code>: “Banlieu”</li>
+<li><code>"isolated_city"</code>: “Ville isolée”</li>
+<li><code>"outside_urban_unit"</code>: “Hors unité urbaine”</li>
+</ul>
+</li>
+</ul>
+<h3 id="origin_urban_unit"><a class="header" href="#origin_urban_unit"><code>origin_urban_unit</code></a></h3>
+<p>Code of the <a href="https://www.insee.fr/fr/information/4802589">urban unit</a> of the trip’s origin.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+</ul>
+<h3 id="origin_urban_unit_name"><a class="header" href="#origin_urban_unit_name"><code>origin_urban_unit_name</code></a></h3>
+<p>Name of the <a href="https://www.insee.fr/fr/information/4802589">urban unit</a> of the trip’s origin.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+</ul>
+<h3 id="origin_insee_aav_type"><a class="header" href="#origin_insee_aav_type"><code>origin_insee_aav_type</code></a></h3>
+<p>Category of the origin INSEE municipality within its
+<a href="https://www.insee.fr/fr/information/4803954">“aire d’attraction des villes” (AAV)</a>.</p>
+<p>The modalities follow the codes proposed by INSEE.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>11</code>: “Commune-centre”</li>
+<li><code>12</code>: “Autre commune du pôle principal”</li>
+<li><code>13</code>: “Commune d’un pôle secondaire”</li>
+<li><code>20</code>: “Commune de la couronne”</li>
+<li><code>30</code>: “Commune hors attraction des villes”</li>
+</ul>
+</li>
+</ul>
+<h3 id="origin_aav"><a class="header" href="#origin_aav"><code>origin_aav</code></a></h3>
+<p>Code of the <a href="https://www.insee.fr/fr/information/4803954">“aire d’attraction des villes” (AAV)</a> of
+the trip’s origin.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+</ul>
+<h3 id="origin_aav_name"><a class="header" href="#origin_aav_name"><code>origin_aav_name</code></a></h3>
+<p>Name of the <a href="https://www.insee.fr/fr/information/4803954">“aire d’attraction des villes” (AAV)</a> of
+the trip’s origin.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+</ul>
+<h3 id="origin_aav_category"><a class="header" href="#origin_aav_category"><code>origin_aav_category</code></a></h3>
+<p>Category of the “aire d’attraction des villes” (AAV) of the trip’s origin.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>1</code>: Paris AAV</li>
+<li><code>2</code>: area with more than 700,000 inhabitants, excluding Paris (“aire de 700 000 habitants ou
+plus (hors Paris)”)</li>
+<li><code>3</code>: area between 200,000 and 700,000 inhabitants (“aire de 200 000 à moins de 700 000
+habitants”)</li>
+<li><code>4</code>: area between 50,000 and 200,000 inhabitants (“aire de 50 000 à moins de 200 000 habitants”)</li>
+<li><code>5</code>: area with less than 50,000 inhabitants (“aire de moins de 50 000 habitants”)</li>
+</ul>
+</li>
+</ul>
+<h3 id="origin_dep"><a class="header" href="#origin_dep"><code>origin_dep</code></a></h3>
+<p><em>Département</em> code of the trip’s origin.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is a valid <em>département</em> code.</li>
+<li>If <code>origin_insee</code> is not null, then the value is equal to the <em>département</em> of the origin INSEE
+municipality.</li>
+</ul>
+</li>
+</ul>
+<h3 id="origin_dep_name"><a class="header" href="#origin_dep_name"><code>origin_dep_name</code></a></h3>
+<p>Name of the <em>département</em> of the trip’s origin.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is consistent with <code>origin_dep</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="origin_nuts2"><a class="header" href="#origin_nuts2"><code>origin_nuts2</code></a></h3>
+<p>NUTS 2 code of the trip’s origin.</p>
+<p>In France, NUTS 2 corresponds to the 22 old administrative regions (and 5 overseas departments).</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is a valid NUTS 2 code.</li>
+<li>If <code>origin_dep</code> is not null, then the value is equal to the NUTS 2 code corresponding to the
+origin <em>département</em>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="origin_nuts2_name"><a class="header" href="#origin_nuts2_name"><code>origin_nuts2_name</code></a></h3>
+<p>Name of the NUTS 2 region of the trip’s origin.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is consistent with <code>origin_nuts2</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="origin_nuts1"><a class="header" href="#origin_nuts1"><code>origin_nuts1</code></a></h3>
+<p>NUTS 1 code of the trip’s origin.</p>
+<p>In France, NUTS 1 corresponds to the 13 administrative regions (and 1 overseas region).</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is a valid NUTS 1 code.</li>
+<li>If <code>origin_nuts2</code> is not null, then the value is equal to the NUTS 1 code corresponding to the
+origin NUTS 2.</li>
+</ul>
+</li>
+</ul>
+<h3 id="origin_nuts1_name"><a class="header" href="#origin_nuts1_name"><code>origin_nuts1_name</code></a></h3>
+<p>Name of the NUTS 1 region of the trip’s origin.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is consistent with <code>origin_nuts1</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="destination-location"><a class="header" href="#destination-location">Destination location</a></h2>
+<h3 id="destination_lng"><a class="header" href="#destination_lng"><code>destination_lng</code></a></h3>
+<p>Longitude of the trip’s destination.</p>
+<p>See <a href="#origin_lng"><code>origin_lng</code></a> for details on the accuracy of the value.</p>
+<ul>
+<li><strong>Type:</strong> Float64</li>
+</ul>
+<h3 id="destination_lat"><a class="header" href="#destination_lat"><code>destination_lat</code></a></h3>
+<p>Latitude of the trip’s destination.</p>
+<p>See <a href="#origin_lng"><code>origin_lng</code></a> for details on the accuracy of the value.</p>
+<ul>
+<li><strong>Type:</strong> Float64</li>
+</ul>
+<h3 id="destination_special_location"><a class="header" href="#destination_special_location"><code>destination_special_location</code></a></h3>
+<p>Identifier of the special location of the trip’s destination.</p>
+<p>Note that in most cases, the destination special location should be equal to the origin special
+location of the next trip (if any).
+Rare exceptions can occur when someone is moving to a different location while the activity is
+performed (e.g., for bus drivers).
+MobiSurvStd will show warning messages indicating how many trips does not match the constraint.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+</ul>
+<h3 id="destination_detailed_zone"><a class="header" href="#destination_detailed_zone"><code>destination_detailed_zone</code></a></h3>
+<p>Identifier of the detailed zone of the trip’s destination.</p>
+<p>Note that in most cases, the destination detailed zone should be equal to the origin detailed zone
+of the next trip (if any).
+Rare exceptions can occur when someone is moving to a different location while the activity is
+performed (e.g., for bus drivers).
+MobiSurvStd will show warning messages indicating how many trips does not match the constraint.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+</ul>
+<h3 id="destination_draw_zone"><a class="header" href="#destination_draw_zone"><code>destination_draw_zone</code></a></h3>
+<p>Identifier of the draw zone of the trip’s destination.</p>
+<p>Note that in most cases, the destination draw zone should be equal to the origin draw zone of the
+next trip (if any).
+Rare exceptions can occur when someone is moving to a different location while the activity is
+performed (e.g., for bus drivers).
+MobiSurvStd will show warning messages indicating how many trips does not match the constraint.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+</ul>
+<h3 id="destination_insee"><a class="header" href="#destination_insee"><code>destination_insee</code></a></h3>
+<p>INSEE code of the municipality of the trip’s destination.</p>
+<p>Note that in most cases, the destination INSEE code should be equal to the origin INSEE code of the
+next trip (if any).
+Rare exceptions can occur when someone is moving to a different location while the activity is
+performed (e.g., for bus drivers).
+MobiSurvStd will show warning messages indicating how many trips does not match the constraint.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>String is a <a href="../miscellaneous.html#insee-codes">valid INSEE code</a>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="destination_insee_name"><a class="header" href="#destination_insee_name"><code>destination_insee_name</code></a></h3>
+<p>Name of the municipality of the trip’s destination.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+</ul>
+<h3 id="destination_insee_density"><a class="header" href="#destination_insee_density"><code>destination_insee_density</code></a></h3>
+<p>Density category of the destination INSEE municipality.</p>
+<p>Density categories are defined by <a href="https://www.insee.fr/fr/information/8571524">INSEE</a>.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>1</code>: “commune densément peuplée”</li>
+<li><code>2</code>: “centre urbain intermédiaire”</li>
+<li><code>3</code>: “petite ville”</li>
+<li><code>4</code>: “ceinture urbaine”</li>
+<li><code>5</code>: “bourg rural”</li>
+<li><code>6</code>: “rural à habitat dispersé”</li>
+<li><code>7</code>: “rural à habitat très dispersé”</li>
+</ul>
+</li>
+</ul>
+<h3 id="destination_insee_urban_type"><a class="header" href="#destination_insee_urban_type"><code>destination_insee_urban_type</code></a></h3>
+<p>Urban type of the destination INSEE municipality.</p>
+<p>Urban types are defined by INSEE based on the
+<a href="https://www.insee.fr/fr/information/4802589">urban units</a>.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"central_city"</code>: “Ville-centre”</li>
+<li><code>"suburb"</code>: “Banlieu”</li>
+<li><code>"isolated_city"</code>: “Ville isolée”</li>
+<li><code>"outside_urban_unit"</code>: “Hors unité urbaine”</li>
+</ul>
+</li>
+</ul>
+<h3 id="destination_urban_unit"><a class="header" href="#destination_urban_unit"><code>destination_urban_unit</code></a></h3>
+<p>Code of the <a href="https://www.insee.fr/fr/information/4802589">urban unit</a> of the trip’s destination.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+</ul>
+<h3 id="destination_urban_unit_name"><a class="header" href="#destination_urban_unit_name"><code>destination_urban_unit_name</code></a></h3>
+<p>Name of the <a href="https://www.insee.fr/fr/information/4802589">urban unit</a> of the trip’s destination.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+</ul>
+<h3 id="destination_insee_aav_type"><a class="header" href="#destination_insee_aav_type"><code>destination_insee_aav_type</code></a></h3>
+<p>Category of the destination INSEE municipality within its
+<a href="https://www.insee.fr/fr/information/4803954">“aire d’attraction des villes” (AAV)</a>.</p>
+<p>The modalities follow the codes proposed by INSEE.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>11</code>: “Commune-centre”</li>
+<li><code>12</code>: “Autre commune du pôle principal”</li>
+<li><code>13</code>: “Commune d’un pôle secondaire”</li>
+<li><code>20</code>: “Commune de la couronne”</li>
+<li><code>30</code>: “Commune hors attraction des villes”</li>
+</ul>
+</li>
+</ul>
+<h3 id="destination_aav"><a class="header" href="#destination_aav"><code>destination_aav</code></a></h3>
+<p>Code of the <a href="https://www.insee.fr/fr/information/4803954">“aire d’attraction des villes” (AAV)</a> of
+the trip’s destination.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+</ul>
+<h3 id="destination_aav_name"><a class="header" href="#destination_aav_name"><code>destination_aav_name</code></a></h3>
+<p>Name of the <a href="https://www.insee.fr/fr/information/4803954">“aire d’attraction des villes” (AAV)</a> of
+the trip’s destination.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+</ul>
+<h3 id="destination_aav_category"><a class="header" href="#destination_aav_category"><code>destination_aav_category</code></a></h3>
+<p>Category of the “aire d’attraction des villes” (AAV) of the trip’s destination.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>1</code>: Paris AAV</li>
+<li><code>2</code>: area with more than 700,000 inhabitants, excluding Paris (“aire de 700 000 habitants ou
+plus (hors Paris)”)</li>
+<li><code>3</code>: area between 200,000 and 700,000 inhabitants (“aire de 200 000 à moins de 700 000
+habitants”)</li>
+<li><code>4</code>: area between 50,000 and 200,000 inhabitants (“aire de 50 000 à moins de 200 000 habitants”)</li>
+<li><code>5</code>: area with less than 50,000 inhabitants (“aire de moins de 50 000 habitants”)</li>
+</ul>
+</li>
+</ul>
+<h3 id="destination_dep"><a class="header" href="#destination_dep"><code>destination_dep</code></a></h3>
+<p><em>Département</em> code of the trip’s destination.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is a valid <em>département</em> code.</li>
+<li>If <code>destination_insee</code> is not null, then the value is equal to the <em>département</em> of the
+destination INSEE municipality.</li>
+</ul>
+</li>
+</ul>
+<h3 id="destination_dep_name"><a class="header" href="#destination_dep_name"><code>destination_dep_name</code></a></h3>
+<p>Name of the <em>département</em> of the trip’s destination.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is consistent with <code>destination_dep</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="destination_nuts2"><a class="header" href="#destination_nuts2"><code>destination_nuts2</code></a></h3>
+<p>NUTS 2 code of the trip’s destination.</p>
+<p>In France, NUTS 2 corresponds to the 22 old administrative regions (and 5 overseas departments).</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is a valid NUTS 2 code.</li>
+<li>If <code>destination_dep</code> is not null, then the value is equal to the NUTS 2 code corresponding to
+the destination <em>département</em>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="destination_nuts2_name"><a class="header" href="#destination_nuts2_name"><code>destination_nuts2_name</code></a></h3>
+<p>Name of the NUTS 2 region of the trip’s destination.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is consistent with <code>destination_nuts2</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="destination_nuts1"><a class="header" href="#destination_nuts1"><code>destination_nuts1</code></a></h3>
+<p>NUTS 1 code of the trip’s destination.</p>
+<p>In France, NUTS 1 corresponds to the 13 administrative regions (and 1 overseas region).</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is a valid NUTS 1 code.</li>
+<li>If <code>destination_nuts2</code> is not null, then the value is equal to the NUTS 1 code corresponding to
+the destination NUTS 2.</li>
+</ul>
+</li>
+</ul>
+<h3 id="destination_nuts1_name"><a class="header" href="#destination_nuts1_name"><code>destination_nuts1_name</code></a></h3>
+<p>Name of the NUTS 1 region of the trip’s destination.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is consistent with <code>destination_nuts1</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="timing"><a class="header" href="#timing">Timing</a></h2>
+<h3 id="departure_time"><a class="header" href="#departure_time"><code>departure_time</code></a></h3>
+<p>Departure time from origin, in number of minutes after midnight.</p>
+<ul>
+<li><strong>Type:</strong> UInt16</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is larger than <code>departure_time</code> values of the person’s trips with a smaller
+<code>trip_index</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="arrival_time"><a class="header" href="#arrival_time"><code>arrival_time</code></a></h3>
+<p>Arrival time at destination, in number of minutes after midnight.</p>
+<ul>
+<li><strong>Type:</strong> UInt16</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is not smaller than <code>departure_time</code>.</li>
+<li>The value is not larger than the <code>departure_time</code> values of the next trip (if any).</li>
+</ul>
+</li>
+</ul>
+<h3 id="travel_time"><a class="header" href="#travel_time"><code>travel_time</code></a></h3>
+<p>Travel time of the trip, in minutes.</p>
+<ul>
+<li><strong>Type:</strong> UInt16</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is equal to <code>arrival_time - departure_time</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="trip_date"><a class="header" href="#trip_date"><code>trip_date</code></a></h3>
+<p>Date at which the trip took place.</p>
+<div class="warning">
+For some CEREMA surveys, the value should be considered approximate.
+The <code class="hljs">trip_weekday</code> value cannot be deduced from it.
+</div>
+
+<ul>
+<li><strong>Type:</strong> Date</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value cannot be later than the household’s <code>interview_date</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="trip_weekday"><a class="header" href="#trip_weekday"><code>trip_weekday</code></a></h3>
+<p>Day of the week when the trip took place.</p>
+<p>When the value of <code>trip_date</code> and <code>trip_weekday</code> are not consistent, the <code>trip_weekday</code> value should
+be considered as the correct value.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"monday"</code></li>
+<li><code>"tuesday"</code></li>
+<li><code>"wednesday"</code></li>
+<li><code>"thursday"</code></li>
+<li><code>"friday"</code></li>
+<li><code>"saturday"</code></li>
+<li><code>"sunday"</code></li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is equal to the household <code>trips_weekday</code> (when it is non-null).</li>
+</ul>
+</li>
+</ul>
+<h2 id="transportation-mode"><a class="header" href="#transportation-mode">Transportation mode</a></h2>
+<h3 id="main_mode"><a class="header" href="#main_mode"><code>main_mode</code></a></h3>
+<p>Main mode of transportation used for the trip.</p>
+<p>In case of intermodality, there is no clear rule how the main mode is defined.</p>
+<p>See <a href="../modes.html">Mode comparison</a> for the original survey modalities mapped to each mode.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"walking"</code></li>
+<li><code>"bicycle:driver"</code>: driver of a bicycle (traditional or electric)</li>
+<li><code>"bicycle:driver:shared"</code>: driver of a bicycle (traditional or electric) from a shared service</li>
+<li><code>"bicycle:driver:traditional"</code>: driver of a traditional bicycle</li>
+<li><code>"bicycle:driver:traditional:shared"</code>: driver of a traditional bicycle from a shared service</li>
+<li><code>"bicycle:driver:electric"</code>: driver of an electric bicycle</li>
+<li><code>"bicycle:driver:electric:shared"</code>: driver of an electric bicycle from a shared service</li>
+<li><code>"bicycle:passenger"</code>: passenger on a (unspecified) bicycle</li>
+<li><code>"motorcycle:driver"</code>: driver of a motorcycle (unspecified size)</li>
+<li><code>"motorcycle:passenger"</code>: passenger on a motorcycle (unspecified size)</li>
+<li><code>"motorcycle:driver:moped"</code>: driver of a small motorcycle (&lt; 50 cm³)</li>
+<li><code>"motorcycle:passenger:moped"</code>: passenger on a small motorcycle (&lt; 50 cm³)</li>
+<li><code>"motorcycle:driver:moto"</code>: driver of a large motorcycle (≥ 50 cm³)</li>
+<li><code>"motorcycle:passenger:moto"</code>: passenger on a large motorcycle (≥ 50 cm³)</li>
+<li><code>"car:driver"</code>: driver of a car</li>
+<li><code>"car:passenger"</code>: passenger in a car</li>
+<li><code>"taxi"</code>: passenger in a taxi</li>
+<li><code>"VTC"</code>: passenger in a VTC</li>
+<li><code>"taxi_or_VTC"</code>: passenger in a taxi or VTC</li>
+<li><code>"public_transit:urban"</code>: passenger in a (unspecified) public-transit vehicle (in urban context)</li>
+<li><code>"public_transit:urban:bus"</code>: passenger in a bus</li>
+<li><code>"public_transit:urban:coach"</code>: passenger in a coach (“autocar”), excluding long-distance trips</li>
+<li><code>"public_transit:urban:tram"</code>: passenger in a tramway</li>
+<li><code>"public_transit:urban:metro"</code>: passenger in a metro</li>
+<li><code>"public_transit:urban:funicular"</code>: passenger in a funicular</li>
+<li><code>"public_transit:urban:rail"</code>: passenger in an express rail service (e.g., RER)</li>
+<li><code>"public_transit:urban:TER"</code>: passenger in a TER</li>
+<li><code>"public_transit:urban:demand_responsive"</code>: passenger in a demand-responsive service</li>
+<li><code>"public_transit:interurban:coach"</code>: passenger in an interurban coach (“autocar”)</li>
+<li><code>"public_transit:interurban:TGV"</code>: passenger in a TGV</li>
+<li><code>"public_transit:interurban:intercités"</code>: passenger in an Intercités</li>
+<li><code>"public_transit:interurban:other_train"</code>: passenger in another train type</li>
+<li><code>"public_transit:school"</code>: passenger in a school transport line (“ramassage scolaire”)</li>
+<li><code>"reduced_mobility_transport"</code>: passenger in a specialized transport for persons with reduced
+mobility</li>
+<li><code>"employer_transport"</code>: passenger in a transport service provided by the employer</li>
+<li><code>"truck:driver"</code>: driver of a truck (“fourgon”, “camionnette”, “camion”)</li>
+<li><code>"truck:passenger"</code>: passenger of a truck (“fourgon”, “camionnette”, “camion”)</li>
+<li><code>"water_transport"</code>: waterway or maritime transport</li>
+<li><code>"airplane"</code></li>
+<li><code>"wheelchair"</code></li>
+<li><code>"personal_transporter:non_motorized"</code>: non-motorized personal transporter (“trottinette”,
+“skateboard”, “roller”, etc.)</li>
+<li><code>"personal_transporter:motorized"</code>: motorized personal transporter (“trottinette électrique”,
+“segway”, “solowheel”, etc.)</li>
+<li><code>"personal_transporter:unspecified"</code>: personal transporter (unspecified motorization)</li>
+<li><code>"other"</code>: other transport mode</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>There is at least one leg with that mode for the trip.</li>
+</ul>
+</li>
+</ul>
+<h3 id="main_mode_group"><a class="header" href="#main_mode_group"><code>main_mode_group</code></a></h3>
+<p>Mode group of the main mode of transportation used for the trip.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"walking"</code>: walking, excluding wheelchair and personal transporter</li>
+<li><code>"bicycle"</code>: bicycle (traditional or electric, driver or passenger, personal or shared)</li>
+<li><code>"motorcycle"</code>: motorcycle (small and large, driver or passenger)</li>
+<li><code>"car_driver"</code>: car as a driver</li>
+<li><code>"car_passenger"</code>: car as a passenger (including taxi and VTC)</li>
+<li><code>"public_transit"</code>: any form of public transit (excluding employer transport)</li>
+<li><code>"other"</code>: all other modes</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The values are consistent with <code>main_mode</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="intermodality"><a class="header" href="#intermodality"><code>intermodality</code></a></h3>
+<p>Whether the trip involved using two different modes of transportation.</p>
+<p>Note that combining walking with another transportation mode is not classified as intermodality and
+combining various public-transit modes (e.g., bus then metro) is not either.</p>
+<ul>
+<li><strong>Type:</strong> Boolean</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If the value is <code>true</code>, then there is at least two legs with different <code>mode_group</code> (excluding
+walking legs).</li>
+</ul>
+</li>
+</ul>
+<h3 id="public_transit_access_mode"><a class="header" href="#public_transit_access_mode"><code>public_transit_access_mode</code></a></h3>
+<p>Mode of transportation used for the access part of the trip (for public-transit trip).</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li>Same modalities as <a href="#main_mode"><code>main_mode</code></a> (excluding all public-transit modes).</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>main_mode_group</code> is not <code>"public_transit"</code>, then the value is null.</li>
+<li>The value is equal to the <a href="legs.html#mode"><code>mode</code></a> of the first leg of the trip.</li>
+</ul>
+</li>
+</ul>
+<h3 id="public_transit_access_mode_group"><a class="header" href="#public_transit_access_mode_group"><code>public_transit_access_mode_group</code></a></h3>
+<p>Mode group of the transportation mode used for the access part of the trip (for public-transit
+trip).</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li>Same modalities as <a href="#main_mode_group"><code>main_mode_group</code></a> (excluding <code>"public_transit"</code>).</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>main_mode_group</code> is not <code>"public_transit"</code>, then the value is null.</li>
+<li>The value is consistent with <code>public_transit_access_mode</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="public_transit_egress_mode"><a class="header" href="#public_transit_egress_mode"><code>public_transit_egress_mode</code></a></h3>
+<p>Mode of transportation used for the egress part of the trip (for public-transit trip).</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li>Same modalities as <a href="#main_mode"><code>main_mode</code></a> (excluding all public-transit modes).</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>main_mode_group</code> is not <code>"public_transit"</code>, then the value is null.</li>
+<li>The value is equal to the <a href="legs.html#mode"><code>mode</code></a> of the last leg of the trip.</li>
+</ul>
+</li>
+</ul>
+<h3 id="public_transit_egress_mode_group"><a class="header" href="#public_transit_egress_mode_group"><code>public_transit_egress_mode_group</code></a></h3>
+<p>Mode group of the transportation mode used for the egress part of the trip (for public-transit
+trip).</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li>Same modalities as <a href="#main_mode_group"><code>main_mode_group</code></a> (excluding <code>"public_transit"</code>).</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>main_mode_group</code> is not <code>"public_transit"</code>, then the value is null.</li>
+<li>The value is consistent with <code>public_transit_egress_mode</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="distances"><a class="header" href="#distances">Distances</a></h2>
+<h3 id="trip_euclidean_distance_km"><a class="header" href="#trip_euclidean_distance_km"><code>trip_euclidean_distance_km</code></a></h3>
+<p>Euclidean distance between the trip’s origin and destination, in kilometers.</p>
+<ul>
+<li><strong>Type:</strong> Float64</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>All values are non-negative.</li>
+</ul>
+</li>
+</ul>
+<h3 id="trip_travel_distance_km"><a class="header" href="#trip_travel_distance_km"><code>trip_travel_distance_km</code></a></h3>
+<p>Travel distance of the trip, in kilometers.</p>
+<p>This is usually a distance on the road network.
+The details regardings how this value is computed depends on the surveys.</p>
+<ul>
+<li><strong>Type:</strong> Float64</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>All values are non-negative.</li>
+</ul>
+</li>
+</ul>
+<h3 id="intra_municipality"><a class="header" href="#intra_municipality"><code>intra_municipality</code></a></h3>
+<p>Whether the INSEE municipality of the trip’s origin is equal to the INSEE municipality of the trip’s
+destination.</p>
+<ul>
+<li><strong>Type:</strong> Boolean</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If the value is <code>true</code>, then <code>origin_insee</code> is equal to <code>destination_insee</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="intra_aav"><a class="header" href="#intra_aav"><code>intra_aav</code></a></h3>
+<p>Whether the AAV of the trip’s origin is equal to the AAV of the trip’s destination.</p>
+<ul>
+<li><strong>Type:</strong> Boolean</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If the value is <code>true</code>, then <code>origin_aav</code> is equal to <code>destination_aav</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="intra_dep"><a class="header" href="#intra_dep"><code>intra_dep</code></a></h3>
+<p>Whether the département of the trip’s origin is equal to the département of the trip’s destination.</p>
+<ul>
+<li><strong>Type:</strong> Boolean</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If the value is <code>true</code>, then <code>origin_dep</code> is equal to <code>destination_dep</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="trip_perimeter"><a class="header" href="#trip_perimeter"><code>trip_perimeter</code></a></h3>
+<p>Perimiter in which the trip is taking place relative to the survey area.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"internal"</code>: the trip is starting and ending within the survey area</li>
+<li><code>"crossing"</code>: the trip is either starting or ending within the survey area</li>
+<li><code>"external"</code>: the trip is not starting nor ending within the survey area</li>
+</ul>
+</li>
+</ul>
+<h2 id="leg--stop-counts"><a class="header" href="#leg--stop-counts">Leg / stop counts</a></h2>
+<h3 id="nb_tour_stops"><a class="header" href="#nb_tour_stops"><code>nb_tour_stops</code></a></h3>
+<p>Number of stops for trips representing tours.</p>
+<ul>
+<li><strong>Type:</strong> UInt8</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If neither <code>origin_purpose</code> nor <code>destination_purpose</code> is <code>"work:professional_tour"</code> or
+<code>"shopping:tour_no_purchase"</code>, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="nb_legs"><a class="header" href="#nb_legs"><code>nb_legs</code></a></h3>
+<p>Number of legs that this trip is composed of.</p>
+<ul>
+<li><strong>Type:</strong> UInt8</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is not null when <code>main_mode</code> is not null.</li>
+<li>The value is positive.</li>
+<li>The value is equal to the number of legs in <code>legs.parquet</code> for that trip.</li>
+</ul>
+</li>
+</ul>
+<h3 id="nb_legs_walking"><a class="header" href="#nb_legs_walking"><code>nb_legs_walking</code></a></h3>
+<p>Number of legs with mode group <code>"walking"</code> in the trip.</p>
+<ul>
+<li><strong>Type:</strong> UInt8</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is not null when <code>main_mode</code> is not null.</li>
+<li>The value is equal to the number of legs in the trip whose <code>mode_group</code> is <code>"walking"</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="nb_legs_bicycle"><a class="header" href="#nb_legs_bicycle"><code>nb_legs_bicycle</code></a></h3>
+<p>Number of legs with mode group <code>"bicycle"</code> in the trip.</p>
+<ul>
+<li><strong>Type:</strong> UInt8</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is not null when <code>main_mode</code> is not null.</li>
+<li>The value is equal to the number of legs in the trip whose <code>mode_group</code> is <code>"bicycle"</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="nb_legs_motorcycle"><a class="header" href="#nb_legs_motorcycle"><code>nb_legs_motorcycle</code></a></h3>
+<p>Number of legs with mode group <code>"motorcycle"</code> in the trip.</p>
+<ul>
+<li><strong>Type:</strong> UInt8</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is not null when <code>main_mode</code> is not null.</li>
+<li>The value is equal to the number of legs in the trip whose <code>mode_group</code> is <code>"motorcycle"</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="nb_legs_car_driver"><a class="header" href="#nb_legs_car_driver"><code>nb_legs_car_driver</code></a></h3>
+<p>Number of legs with mode group <code>"car_driver"</code> in the trip.</p>
+<ul>
+<li><strong>Type:</strong> UInt8</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is not null when <code>main_mode</code> is not null.</li>
+<li>The value is equal to the number of legs in the trip whose <code>mode_group</code> is <code>"car_driver"</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="nb_legs_car_passenger"><a class="header" href="#nb_legs_car_passenger"><code>nb_legs_car_passenger</code></a></h3>
+<p>Number of legs with mode group <code>"car_passenger"</code> in the trip.</p>
+<ul>
+<li><strong>Type:</strong> UInt8</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is not null when <code>main_mode</code> is not null.</li>
+<li>The value is equal to the number of legs in the trip whose <code>mode_group</code> is <code>"car_passenger"</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="nb_legs_public_transit"><a class="header" href="#nb_legs_public_transit"><code>nb_legs_public_transit</code></a></h3>
+<p>Number of legs with mode group <code>"public_transit"</code> in the trip.</p>
+<p>For public-transit trips, the number of transfers is thus <code>nb_legs_public_transit - 1</code>.</p>
+<ul>
+<li><strong>Type:</strong> UInt8</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is not null when <code>main_mode</code> is not null.</li>
+<li>The value is equal to the number of legs in the trip whose <code>mode_group</code> is <code>"public_transit"</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="nb_legs_other"><a class="header" href="#nb_legs_other"><code>nb_legs_other</code></a></h3>
+<p>Number of legs with mode group <code>"other"</code> in the trip.</p>
+<ul>
+<li><strong>Type:</strong> UInt8</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is not null when <code>main_mode</code> is not null.</li>
+<li>The value is equal to the number of legs in the trip whose <code>mode_group</code> is <code>"other"</code>.</li>
+</ul>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../format/persons.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../format/legs.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../format/persons.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../format/legs.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

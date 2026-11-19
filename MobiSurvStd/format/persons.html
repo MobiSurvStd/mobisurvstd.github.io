@@ -1,0 +1,1472 @@
+<!DOCTYPE HTML>
+<html lang="en" class="rust sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Persons - MobiSurvStd</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-e96d0476.css">
+        <link rel="stylesheet" href="../css/chrome-d279d366.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "rust";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex-5a1aa44a.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-d1dade75.js"></script>
+    <link rel="canonical" href="https://nemobi.lucasjavaudin.com/format/persons.html">
+</head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">MobiSurvStd</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/LucasJavaudin/MobiSurvStd" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+<div id="nemobi-rename-banner" style="margin: 1em 0 2em; padding: 0.8em 1.2em;
+  border-left: 5px solid #e69f00; background: var(--quote-bg); color: var(--fg);">
+<p style="margin: 0.3em 0;">⚠️ <strong>MobiSurvStd has been renamed to Nemobi.</strong>
+This documentation is frozen at MobiSurvStd v1.6.1 and is no longer updated.</p>
+<p style="margin: 0.3em 0;">→ <a id="nemobi-rename-link" href="https://nemobi.lucasjavaudin.com/format/persons.html"><strong>See this page in the
+Nemobi documentation</strong></a> · <a href="https://nemobi.lucasjavaudin.com/migration.html">Migration guide</a></p>
+</div>
+<script>
+  (function () {
+    var link = document.getElementById("nemobi-rename-link");
+    if (link && window.location.hash) { link.href = link.href + window.location.hash; }
+  })();
+</script>
+
+                        <h1 id="persons"><a class="header" href="#persons">Persons</a></h1>
+<p>Sort order: <code>person_id</code></p>
+<h2 id="indexing"><a class="header" href="#indexing">Indexing</a></h2>
+<h3 id="person_id"><a class="header" href="#person_id"><code>person_id</code></a></h3>
+<p>Unique identifier of the person.</p>
+<ul>
+<li><strong>Type:</strong> UInt32</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>Values range from 1 to the number of persons.</li>
+</ul>
+</li>
+</ul>
+<h3 id="household_id"><a class="header" href="#household_id"><code>household_id</code></a></h3>
+<p>Identifier of the household the person belongs to.</p>
+<ul>
+<li><strong>Type:</strong> UInt32</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is not null.</li>
+<li>The values are stored in increasing order (i.e., the persons from households with a smaller id
+are shown first).</li>
+<li>There exists a household with this <code>household_id</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="person_index"><a class="header" href="#person_index"><code>person_index</code></a></h3>
+<p>Index of the person within the household’s persons.</p>
+<ul>
+<li><strong>Type:</strong> UInt8</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is not null.</li>
+<li>Values are unique <em>within a household</em> and range from 1 to the number of persons in the
+household.</li>
+</ul>
+</li>
+</ul>
+<h3 id="original_person_id"><a class="header" href="#original_person_id"><code>original_person_id</code></a></h3>
+<p>Identifier of the person in the original data.</p>
+<ul>
+<li><strong>Type:</strong> Struct whose fields depend on the survey</li>
+</ul>
+<h2 id="demographic-characteristics"><a class="header" href="#demographic-characteristics">Demographic characteristics</a></h2>
+<h3 id="reference_person_link"><a class="header" href="#reference_person_link"><code>reference_person_link</code></a></h3>
+<p>Link of the person relative to the reference person of the household.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"reference_person"</code>: this person is the reference person of the household</li>
+<li><code>"spouse"</code>: this person is the spouse (husband or wife) of the reference person</li>
+<li><code>"child"</code>: this person is a child of the reference person</li>
+<li><code>"roommate_or_tenant"</code>: this person is a roommate or tenant in the household, with no family
+link to the reference person</li>
+<li><code>"other:relative"</code>: this person is a relative of the reference person (but not spouse or child)</li>
+<li><code>"other:non_relative"</code>: other link to the reference person (excluding relatives)</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If the values are not null for all persons within a household, then there is exactly
+one person defined as the <code>"reference_person"</code> for this household.</li>
+</ul>
+</li>
+</ul>
+<h3 id="resident_type"><a class="header" href="#resident_type"><code>resident_type</code></a></h3>
+<p>Whether the person is living in the household home for most of the year.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"permanent_resident"</code>: the person is living in the household for most of the year</li>
+<li><code>"mostly_weekends"</code>: the person is usually only living in the household during weekends (with
+another location during weekdays for work or study reasons)</li>
+<li><code>"mostly_weekdays"</code>: the person is usually only living in the household during weekdays (for
+work or study reasons)</li>
+</ul>
+</li>
+</ul>
+<h3 id="woman"><a class="header" href="#woman"><code>woman</code></a></h3>
+<p>Whether the person is a woman.</p>
+<ul>
+<li><strong>Type:</strong> Boolean</li>
+</ul>
+<h3 id="age"><a class="header" href="#age"><code>age</code></a></h3>
+<p>Age of the person.</p>
+<ul>
+<li><strong>Type:</strong> UInt8</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is not larger than 125.</li>
+<li>The value is smaller than the household’s reference person when <code>reference_person_link</code> is
+<code>"child"</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="age_class"><a class="header" href="#age_class"><code>age_class</code></a></h3>
+<p>Age of the person in 7 classes.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"17-"</code>: 17 or less</li>
+<li><code>"18-24"</code>: 18 to 24</li>
+<li><code>"25-34"</code>: 25 to 34</li>
+<li><code>"35-49"</code>: 35 to 49</li>
+<li><code>"50-64"</code>: 50 to 64</li>
+<li><code>"65-74"</code>: 65 to 74</li>
+<li><code>"75+"</code>: 75 or more</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is not null when <code>age</code> is not null.</li>
+<li>The class is compatible with the value of <code>age</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="age_class_code"><a class="header" href="#age_class_code"><code>age_class_code</code></a></h3>
+<p>Age of the person in 7 classes.</p>
+<p>Value 1 is for <code>"17-"</code>, 2 is for <code>"18-24"</code>, …, 7 is for <code>"75+"</code>.</p>
+<ul>
+<li><strong>Type:</strong> UInt8</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is not null when <code>age</code> is not null.</li>
+<li>The value is consistent with <code>age_class</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="detailed_education_level"><a class="header" href="#detailed_education_level"><code>detailed_education_level</code></a></h3>
+<p>Highest education level reached by the person, in detailed categories.</p>
+<p>See <a href="../education.html">Education level comparison</a> for the original survey modalities mapped to each
+level.</p>
+<p>The modalities try to reproduce as best as possible the large diversity of the modalities observed
+in the surveys without having too many modalities and without losing too much information.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"no_studies"</code>: the person did not go to school</li>
+<li><code>"no_diploma"</code>: the person did not get any diploma</li>
+<li><code>"primary:unspecified"</code>: the person has stopped going to school after primary education (“école
+primaire”), it is unknown whether they get the “Certificat d’études primaires”</li>
+<li><code>"primary:CEP"</code>: the person’s highest diploma is the “Certificat d’études primaires”</li>
+<li><code>"secondary:no_bac:college"</code>: the person has stopped going to school after middle-school
+(“collège”) or their highest diploma is “Brevet des collèges”</li>
+<li><code>"secondary:no_bac:CAP/BEP"</code>: the person’s highest diploma is “CAP”, “BEP”, or an equivalent
+diploma</li>
+<li><code>"secondary:bac:techno_or_pro"</code>: the person’s highest diploma is “Baccalauréat
+technologique”, “Baccalauréat professionnel”, or an equivalent diploma</li>
+<li><code>"secondary:bac:general"</code>: the person’s highest diploma is “Baccalauréat général”</li>
+<li><code>"secondary:bac:unspecified"</code>: the person’s highest diploma is “Baccalauréat” (without further
+specification)</li>
+<li><code>"higher:at_most_bac+2:DEUG"</code>: the person’s highest diploma is “DEUG” (BAC+2)</li>
+<li><code>"higher:at_most_bac+2:BTS/DUT"</code>: the person’s highest diploma is “BTS”, “DUT”, or an equivalent
+diploma (BAC+2)</li>
+<li><code>"higher:at_most_bac+2:paramedical_social"</code>: the person’s highest diploma is at BAC+2 level
+(“formation paramédical et social”)</li>
+<li><code>"higher:at_most_bac+2:unspecified"</code>: the person’s highest diploma is at BAC+2 level
+(unspecified diploma)</li>
+<li><code>"higher:at_least_bac+3:universite"</code>: the person’s highest diploma is at least BAC+3 in a
+university (“Licence”, “Maîtrise”, “Master”, “DEA”, “DESS”, “Doctorat”)</li>
+<li><code>"higher:at_least_bac+3:ecole"</code>: the person’s highest diploma is at least BAC+3 in a “Grande
+École”</li>
+<li><code>"higher:at_least_bac+3:unspecified"</code>: the person’s highest diploma is at least BAC+3 (without
+further specification)</li>
+<li><code>"higher:bac+3_or_+4"</code>: the person’s highest diploma is at level BAC+3 or BAC+4</li>
+<li><code>"higher:at_least_bac+5"</code>: the person’s highest diploma is at least BAC+5</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is null when <code>professional_occupation</code> is <code>"student"</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="education_level"><a class="header" href="#education_level"><code>education_level</code></a></h3>
+<p>Highest education level reached by the person.</p>
+<p>Note that given the diversity of the surveys regarding this question, some modalities might have
+different meanings depending on the survey (e.g., <code>"primary"</code> can mean either that the person did
+go to school after primary education or that their highest diploma earned is “Certificat d’études
+primaires”).
+Also see <a href="#detailed_education_level"><code>detailed_education_level</code></a>.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"no_studies_or_no_diploma"</code>: the person did no go to school or did not get any diploma</li>
+<li><code>"primary"</code>: the person has stopped going to school after primary education (“école primaire”)
+or their highest diploma is “Certificat d’études primaires”</li>
+<li><code>"secondary:no_bac"</code>: the person has stopped going to school after middle-school (“collège”) or
+high-school (“lycée”) and did not get the baccalauréat</li>
+<li><code>"secondary:bac"</code>: the person has stopped going to school after high-school (“lycée”) with
+the baccalauréat diploma</li>
+<li><code>"higher:at_most_bac+2"</code>: the person has stopped going to school after at most 2 years of
+higher education</li>
+<li><code>"higher:at_least_bac+3"</code>: the person has stopped going to school after at least 3 years of
+higher education</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is null when <code>professional_occupation</code> is <code>"student"</code>.</li>
+<li>The value is null when <code>detailed_education_level</code> is null.</li>
+<li>The value is consistent with <code>detailed_education_level</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="occupancy"><a class="header" href="#occupancy">Occupancy</a></h2>
+<h3 id="detailed_professional_occupation"><a class="header" href="#detailed_professional_occupation"><code>detailed_professional_occupation</code></a></h3>
+<p>Detailed professional status of the person.</p>
+<p>See <a href="../occupation.html">Professional occupation comparison</a> for the original survey modalities
+mapped to each occupation.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"worker:full_time"</code>: the person has a full-time job</li>
+<li><code>"worker:part_time"</code>: the person has a part-time job</li>
+<li><code>"worker:unspecified"</code>: the person has a job with no further specification</li>
+<li><code>"student:primary_or_secondary"</code>: the person is a student in primary or secondary education</li>
+<li><code>"student:higher"</code>: the person is a student in higher education (“enseignement supérieur”)</li>
+<li><code>"student:apprenticeship"</code>: the person is in apprenticeship training</li>
+<li><code>"student:unspecified"</code>: the person is a student (unspecifide level)</li>
+<li><code>"other:unemployed"</code>: the person is unemployed, looking for a job</li>
+<li><code>"other:retired"</code>: the person is retired</li>
+<li><code>"other:homemaker"</code>: the person is not working and not looking for a job</li>
+<li><code>"other:unspecified"</code>: other unspecified situation</li>
+</ul>
+</li>
+</ul>
+<h3 id="professional_occupation"><a class="header" href="#professional_occupation"><code>professional_occupation</code></a></h3>
+<p>Professional status of the person.</p>
+<p>Note these categories cannot represent some mixed situations (e.g., students with week-end jobs,
+students in apprenticeship, retired people with small jobs).
+Also see <code>detailed_professional_occupation</code> and <code>secondary_professional_occupation</code> for more
+details.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"worker"</code>: the person has a full-time or part-time job</li>
+<li><code>"student"</code>: the person is a student</li>
+<li><code>"other"</code>: other status</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The values is not null when <code>detailed_professional_occupation</code> is not null.</li>
+<li>The value is consistent with <code>detailed_professional_occupation</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="secondary_professional_occupation"><a class="header" href="#secondary_professional_occupation"><code>secondary_professional_occupation</code></a></h3>
+<p>Secondary professional occupation of the person (if any).</p>
+<p>This is useful for students with part-time student job or workers with continuous training
+(“formation continue”) for example.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"work"</code></li>
+<li><code>"education"</code></li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is not <code>"work"</code> if <code>"professional_occupation"</code> is <code>"worker"</code></li>
+<li>The value is not <code>"education"</code> if <code>"professional_occupation"</code> is <code>"student"</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="work-status"><a class="header" href="#work-status">Work status</a></h2>
+<h3 id="pcs_category_code2020"><a class="header" href="#pcs_category_code2020"><code>pcs_category_code2020</code></a></h3>
+<p>Code of the category of “Professions et Catégories Socioprofessionnelles” the person belongs to.</p>
+<p>This variable is used when the codes from the survey follow the
+<a href="https://www.insee.fr/fr/metadonnees/pcs2020/groupeSocioprofessionnel/1">INSEE 2020 definition</a>.</p>
+<ul>
+<li><strong>Type:</strong> UInt8</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>Possible values: 10, 21, 22, 23, 31, 33, 34, 35, 37, 38, 42, 43, 44, 45, 46, 47, 48, 52, 53,
+54, 55, 56, 62, 63, 64, 65, 67, 68, 69.</li>
+<li>If <code>professional_occupation</code> is <code>"student"</code>, <code>detailed_professional_occupation</code> is not
+<code>"student:apprenticeship"</code>, and <code>secondary_professional_occupation</code> is not <code>"work"</code>, then the
+value is null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="pcs_category_code2003"><a class="header" href="#pcs_category_code2003"><code>pcs_category_code2003</code></a></h3>
+<p>Code of the category of “Professions et Catégories Socioprofessionnelles” the person belongs to.</p>
+<p>This variable is used when the codes from the survey follow the
+<a href="https://www.insee.fr/fr/metadonnees/pcs2003/categorieSocioprofessionnelleAgregee/1">INSEE 2003 definition</a>.</p>
+<ul>
+<li><strong>Type:</strong> UInt8</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>Possible values: 10, 21, 22, 23, 31, 32, 36, 41, 46, 47, 48, 51, 54, 55, 56, 61, 66, 69, 71,
+72, 73, 76, 81, 82.</li>
+<li>If <code>professional_occupation</code> is <code>"student"</code>, <code>detailed_professional_occupation</code> is not
+<code>"student:apprenticeship"</code>, and <code>secondary_professional_occupation</code> is not <code>"work"</code>, then the
+value is null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="pcs_group_code"><a class="header" href="#pcs_group_code"><code>pcs_group_code</code></a></h3>
+<p>Code of the group of “Professions et Catégories Socioprofessionnelles” the person belongs to.</p>
+<p>The codes follow the
+<a href="https://www.insee.fr/fr/metadonnees/pcs2003/categorieSocioprofessionnelleAgregee/1">2003 definition of the groups</a>.</p>
+<p>See <a href="#pcs_group"><code>pcs_group</code></a> for more details.</p>
+<ul>
+<li><strong>Modalities:</strong> 1, 2, 3, 4, 5, 6, 7, 8</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is <code>"student"</code>, <code>detailed_professional_occupation</code> is not
+<code>"student:apprenticeship"</code>, and <code>secondary_professional_occupation</code> is not <code>"work"</code>, then the
+value is null.</li>
+<li>If <code>pcs2020</code> is not null, then the value is not null.</li>
+<li>The value is equal to the first digit of <code>pcs2020</code> (when not null).</li>
+<li>If <code>pcs2003</code> is not null, then the value is not null.</li>
+<li>The value is equal to the first digit of <code>pcs2003</code> (when not null).</li>
+</ul>
+</li>
+</ul>
+<h3 id="pcs_group"><a class="header" href="#pcs_group"><code>pcs_group</code></a></h3>
+<p>Group of “Professions et Catégories Socioprofessionnelles” the person belongs to.</p>
+<p>The groups are defined by
+<a href="https://www.insee.fr/fr/information/6208292">INSEE</a>.
+Some surveys follow the
+<a href="https://www.insee.fr/fr/metadonnees/pcs2003/categorieSocioprofessionnelleAgregee/1">INSEE 2003 definition</a>,
+while others follow the
+<a href="https://www.insee.fr/fr/metadonnees/pcs2020/groupeSocioprofessionnel/1">2020 definition</a>.
+This means that the two last groups (“retraités” and
+“autres_personnes_sans_activité_professionnelle”) might not be used for some surveys.
+The <code>detailed_professional_occupation</code> variable should be used instead if you need to access job
+status.
+Note that unemployed and retired people might still be assigned to the group corresponding to their
+previous jobs.
+Students can be assigned a PCS if they have an apprenticeship contract or student job.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"agriculteurs_exploitants"</code></li>
+<li><code>"artisans_commerçants_chefs_d'entreprise"</code></li>
+<li><code>"cadres_et_professions_intellectuelles_supérieures"</code></li>
+<li><code>"professions_intermédiaires"</code></li>
+<li><code>"employés"</code></li>
+<li><code>"ouvriers"</code></li>
+<li><code>"retraités"</code></li>
+<li><code>"autres_personnes_sans_activité_professionnelle"</code></li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is null <em>if and only if</em> <code>pcs_group_code</code> is null.</li>
+<li>The value is consistent with <code>pcs_group_code</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="workplace-location"><a class="header" href="#workplace-location">Workplace location</a></h2>
+<h3 id="work_only_at_home"><a class="header" href="#work_only_at_home"><code>work_only_at_home</code></a></h3>
+<p>Whether the person works only at home.</p>
+<ul>
+<li><strong>Type:</strong> Boolean</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is not <code>"worker"</code> and <code>secondary_professional_occupation</code> is not
+<code>"work"</code>, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="workplace_singularity"><a class="header" href="#workplace_singularity"><code>workplace_singularity</code></a></h3>
+<p>Whether the person has a unique, fixed workplace location.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"unique:outside"</code>: the person has a unique workplace location, outside home</li>
+<li><code>"unique:home"</code>: the person is working only at home</li>
+<li><code>"variable"</code>: the person has multiple usual workplace location or no usual workplace location
+(e.g., moving from client to client)</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is not <code>"worker"</code> and <code>secondary_professional_occupation</code> is not
+<code>"work"</code>, then the value is null.</li>
+<li>If <code>work_only_at_home</code> is true, then the value is <code>"unique:home"</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="work_lng"><a class="header" href="#work_lng"><code>work_lng</code></a></h3>
+<p>Longitude of the usual workplace.</p>
+<p>The accuracy depends on the survey type.
+For EGT surveys, the coordinates are guaranteed to be within 100 meters of the actual location.
+For other surveys, the coordinates represent the centroid of <code>work_detailed_zone</code> (or the exact
+coordinates defined by <code>work_special_location</code> when it is non-null).</p>
+<ul>
+<li><strong>Type:</strong> Float64</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is not <code>"worker"</code> and <code>secondary_professional_occupation</code> is not
+<code>"work"</code>, then the value is null.</li>
+<li>If <code>work_only_at_home</code> is true, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="work_lat"><a class="header" href="#work_lat"><code>work_lat</code></a></h3>
+<p>Latitude of the usual workplace.</p>
+<p>See <a href="#work_lng"><code>work_lng</code></a> for details on the accuracy of the value.</p>
+<ul>
+<li><strong>Type:</strong> Float64</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is not <code>"worker"</code> and <code>secondary_professional_occupation</code> is not
+<code>"work"</code>, then the value is null.</li>
+<li>If <code>work_only_at_home</code> is true, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="work_special_location"><a class="header" href="#work_special_location"><code>work_special_location</code></a></h3>
+<p>Identifier of the special location where the person usually works.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is not <code>"worker"</code> and <code>secondary_professional_occupation</code> is not
+<code>"work"</code>, then the value is null.</li>
+<li>If <code>work_only_at_home</code> is true, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="work_detailed_zone"><a class="header" href="#work_detailed_zone"><code>work_detailed_zone</code></a></h3>
+<p>Identifier of the detailed zone where the person usually works.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is not <code>"worker"</code> and <code>secondary_professional_occupation</code> is not
+<code>"work"</code>, then the value is null.</li>
+<li>If <code>work_only_at_home</code> is true, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="work_draw_zone"><a class="header" href="#work_draw_zone"><code>work_draw_zone</code></a></h3>
+<p>Identifier of the draw zone where the person usually works.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is not <code>"worker"</code> and <code>secondary_professional_occupation</code> is not
+<code>"work"</code>, then the value is null.</li>
+<li>If <code>work_only_at_home</code> is true, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="work_insee"><a class="header" href="#work_insee"><code>work_insee</code></a></h3>
+<p>INSEE code of the municipality where the person usually works.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>String is a <a href="../miscellaneous.html#insee-codes">valid INSEE code</a>.</li>
+<li>If <code>professional_occupation</code> is not <code>"worker"</code> and <code>secondary_professional_occupation</code> is not
+<code>"work"</code>, then the value is null.</li>
+<li>If <code>work_only_at_home</code> is true, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="work_insee_name"><a class="header" href="#work_insee_name"><code>work_insee_name</code></a></h3>
+<p>Name of the municipality where the person usually works.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is not <code>"worker"</code> and <code>secondary_professional_occupation</code> is not
+<code>"work"</code>, then the value is null.</li>
+<li>If <code>work_only_at_home</code> is true, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="work_dep"><a class="header" href="#work_dep"><code>work_dep</code></a></h3>
+<p><em>Département</em> code of the usual workplace.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is a valid <em>département</em> code.</li>
+<li>If <code>professional_occupation</code> is not <code>"worker"</code> and <code>secondary_professional_occupation</code> is not
+<code>"work"</code>, then the value is null.</li>
+<li>If <code>work_only_at_home</code> is true, then the value is null.</li>
+<li>If <code>work_insee</code> is not null, then the value is equal to the <em>département</em> of the work INSEE
+municipality.</li>
+</ul>
+</li>
+</ul>
+<h3 id="work_dep_name"><a class="header" href="#work_dep_name"><code>work_dep_name</code></a></h3>
+<p>Name of the <em>département</em> of the usual workplace.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is not <code>"worker"</code> and <code>secondary_professional_occupation</code> is not
+<code>"work"</code>, then the value is null.</li>
+<li>If <code>work_only_at_home</code> is true, then the value is null.</li>
+<li>The value is consistent with <code>work_dep</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="work_nuts2"><a class="header" href="#work_nuts2"><code>work_nuts2</code></a></h3>
+<p>NUTS 2 code of the usual workplace.</p>
+<p>In France, NUTS 2 corresponds to the 22 old administrative regions (and 5 overseas departments).</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is not <code>"worker"</code> and <code>secondary_professional_occupation</code> is not
+<code>"work"</code>, then the value is null.</li>
+<li>If <code>work_only_at_home</code> is true, then the value is null.</li>
+<li>The value is a valid NUTS 2 code.</li>
+<li>If <code>work_dep</code> is not null, then the value is equal to the NUTS 2 code corresponding to the work
+<em>département</em>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="work_nuts2_name"><a class="header" href="#work_nuts2_name"><code>work_nuts2_name</code></a></h3>
+<p>Name of the NUTS 2 region of the usual workplace.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is not <code>"worker"</code> and <code>secondary_professional_occupation</code> is not
+<code>"work"</code>, then the value is null.</li>
+<li>If <code>work_only_at_home</code> is true, then the value is null.</li>
+<li>The value is consistent with <code>work_nuts2</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="work_nuts1"><a class="header" href="#work_nuts1"><code>work_nuts1</code></a></h3>
+<p>NUTS 1 code of the usual workplace.</p>
+<p>In France, NUTS 1 corresponds to the 13 administrative regions (and 1 overseas region).</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is not <code>"worker"</code> and <code>secondary_professional_occupation</code> is not
+<code>"work"</code>, then the value is null.</li>
+<li>If <code>work_only_at_home</code> is true, then the value is null.</li>
+<li>The value is a valid NUTS 1 code.</li>
+<li>If <code>work_nuts2</code> is not null, then the value is equal to the NUTS 1 code corresponding to the
+work NUTS 2.</li>
+</ul>
+</li>
+</ul>
+<h3 id="work_nuts1_name"><a class="header" href="#work_nuts1_name"><code>work_nuts1_name</code></a></h3>
+<p>Name of the NUTS 1 region of the usual workplace.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is not <code>"worker"</code> and <code>secondary_professional_occupation</code> is not
+<code>"work"</code>, then the value is null.</li>
+<li>If <code>work_only_at_home</code> is true, then the value is null.</li>
+<li>The value is consistent with <code>work_nuts1</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="work-commute"><a class="header" href="#work-commute">Work commute</a></h2>
+<h3 id="work_commute_euclidean_distance_km"><a class="header" href="#work_commute_euclidean_distance_km"><code>work_commute_euclidean_distance_km</code></a></h3>
+<p>Euclidean distance, in kilometers, between the person’s home location and usual work location.</p>
+<ul>
+<li><strong>Type:</strong> Float64</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is non-negative.</li>
+<li>If <code>professional_occupation</code> is not <code>"worker"</code> and <code>secondary_professional_occupation</code> is not
+<code>"work"</code>, then the value is null.</li>
+<li>If <code>work_only_at_home</code> is true, then the value is zero.</li>
+</ul>
+</li>
+</ul>
+<h3 id="has_car_for_work_commute"><a class="header" href="#has_car_for_work_commute"><code>has_car_for_work_commute</code></a></h3>
+<p>Whether the person has a car they can use to commute to work.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"yes:full_commute"</code>: the person has a car that they use for the full trip</li>
+<li><code>"yes:partial_commute"</code>: the person has a car that they use for a part of the trip</li>
+<li><code>"yes:not_used"</code>: the person has a car that they could use to commute to work but they do not</li>
+<li><code>"yes:partial_or_not_used"</code>: the person has a car but it is not used or only for a part of the
+trip</li>
+<li><code>"yes:full_or_partial"</code>: the person has a car that they use partially or fully to commute to
+work</li>
+<li><code>"no"</code>: no</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is not <code>"worker"</code> and <code>secondary_professional_occupation</code> is not
+<code>"work"</code>, then the value is null.</li>
+<li>If <code>work_only_at_home</code> is false, then the value is zero.</li>
+</ul>
+</li>
+</ul>
+<h3 id="telework"><a class="header" href="#telework"><code>telework</code></a></h3>
+<p>Whether and frequency at which the person teleworks.</p>
+<p>Note that persons who reported to only work at home (e.g., many farmers) are not considered to be
+telework each day (the value is null for them).</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"yes:weekly"</code>: the person teleworks at least once a week</li>
+<li><code>"yes:monthly"</code>: the person teleworks at least once a month</li>
+<li><code>"yes:occasionally"</code>: the person teleworks but only occasionally (less than once a month)</li>
+<li><code>"no"</code>: the person never telework</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is not <code>"worker"</code> and <code>secondary_professional_occupation</code> is not
+<code>"work"</code>, then the value is null.</li>
+<li>If <code>work_only_at_home</code> is false, then the value is zero.</li>
+</ul>
+</li>
+</ul>
+<h2 id="workplace-parking"><a class="header" href="#workplace-parking">Workplace parking</a></h2>
+<h3 id="work_car_parking"><a class="header" href="#work_car_parking"><code>work_car_parking</code></a></h3>
+<p>Whether the person has access to a car parking spot at the usual work location.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"yes:reserved"</code>: the person has (or could have) a reserved car spot at work</li>
+<li><code>"yes:many_spots"</code>: the person can park their car at work because they are many spots available</li>
+<li><code>"yes:compatible_schedule"</code>: the person can park their car at work because their work schedule
+allow them to easily find spots</li>
+<li><code>"yes:unspecified"</code>: the person can park their car at work (no further specification)</li>
+<li><code>"no"</code>: the person cannot park their car at work</li>
+<li><code>"dont_know"</code>: the person does not know whether they can park their car at work</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is not <code>"worker"</code> and <code>secondary_professional_occupation</code> is not
+<code>"work"</code>, then the value is null.</li>
+<li>If <code>work_only_at_home</code> is false, then the value is zero.</li>
+</ul>
+</li>
+</ul>
+<h3 id="work_bicycle_parking"><a class="header" href="#work_bicycle_parking"><code>work_bicycle_parking</code></a></h3>
+<p>Whether the person has access to a bicycle parking spot at the usual work location.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"yes:on_site:sheltered"</code>: the person has access to a sheltered bicycle parking at workplace</li>
+<li><code>"yes:on_site:unsheltered"</code>: the person has access to an unsheltered bicycle parking at
+workplace</li>
+<li><code>"yes:on_site"</code>: the person has access to a bicycle parking at workplace (unknown whether it is
+sheltered)</li>
+<li><code>"yes:nearby:sheltered"</code>: the person has access to a sheltered bicycle parking nearby work</li>
+<li><code>"yes:nearby:unsheltered"</code>: the person has access to an unsheltered bicycle parking nearby work</li>
+<li><code>"yes:nearby"</code>: the person has access to a bicycle parking nearby work (unknown whether it is
+sheltered)</li>
+<li><code>"no"</code>: the person does not have access to a bicycle parking at workplace or nearby work</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is not <code>"worker"</code> and <code>secondary_professional_occupation</code> is not
+<code>"work"</code>, then the value is null.</li>
+<li>If <code>work_only_at_home</code> is false, then the value is zero.</li>
+</ul>
+</li>
+</ul>
+<h2 id="student-status"><a class="header" href="#student-status">Student status</a></h2>
+<h3 id="student_category"><a class="header" href="#student_category"><code>student_category</code></a></h3>
+<p>Category indicating the detailed current education level for students.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"maternelle"</code></li>
+<li><code>"primaire"</code>: “école primaire” excluding “maternelle”</li>
+<li><code>"collège:6e"</code></li>
+<li><code>"collège:5e"</code></li>
+<li><code>"collège:4e"</code></li>
+<li><code>"collège:3e"</code></li>
+<li><code>"collège:SEGPA"</code></li>
+<li><code>"lycée:seconde"</code></li>
+<li><code>"lycée:première"</code></li>
+<li><code>"lycée:terminale"</code></li>
+<li><code>"lycée:CAP"</code>: “lycée professionelle ou CFA, préparation du CAP”</li>
+<li><code>"supérieur:technique"</code>: “IUT / BTS”</li>
+<li><code>"supérieur:prépa1"</code>: “Classe préparatoire, première année”</li>
+<li><code>"supérieur:prépa2"</code>: “Classe préparatoire, deuxième année”</li>
+<li><code>"supérieur:BAC+1"</code>: Other higher education training, “niveau BAC+1”</li>
+<li><code>"supérieur:BAC+2"</code>: Other higher education training, “niveau BAC+2”</li>
+<li><code>"supérieur:BAC+3"</code>: Other higher education training, “niveau BAC+3”</li>
+<li><code>"supérieur:BAC+4"</code>: Other higher education training, “niveau BAC+4”</li>
+<li><code>"supérieur:BAC+5"</code>: Other higher education training, “niveau BAC+5”</li>
+<li><code>"supérieur:BAC+6&amp;+"</code>: Other higher education training, “niveau BAC+6 et plus”</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is <em>not</em> <code>"student"</code>, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="student_group"><a class="header" href="#student_group"><code>student_group</code></a></h3>
+<p>Group indicating the current education level for students.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"primaire"</code>: “maternelle” or primary school</li>
+<li><code>"collège"</code>: middle-school</li>
+<li><code>"lycée"</code>: high-school</li>
+<li><code>"supérieur"</code>: higher education</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is <em>not</em> <code>"student"</code>, then the value is null.</li>
+<li>The value is consistent with <code>student_category</code> (e.g., if <code>student_category</code> is
+<code>"collège:6e"</code>, then the value is <code>"collège"</code>).</li>
+<li>The value is consistent with <code>detailed_professional_occupation</code> (<code>"student:higher"</code> implies
+<code>"supérieur"</code>; <code>"student:primary_or_secondary"</code> implies <code>"primaire"</code>, <code>"collège"</code>, or <code>"lycée"</code>;
+<code>"student:apprenticeship"</code> implies <code>"collège"</code>, <code>"lycée"</code> or <code>"supérieur"</code>).</li>
+</ul>
+</li>
+</ul>
+<h2 id="study-location"><a class="header" href="#study-location">Study location</a></h2>
+<h3 id="study_only_at_home"><a class="header" href="#study_only_at_home"><code>study_only_at_home</code></a></h3>
+<p>Whether the person studies only at home.</p>
+<ul>
+<li><strong>Type:</strong> Boolean</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is <em>not</em> <code>"student"</code>, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="study_lng"><a class="header" href="#study_lng"><code>study_lng</code></a></h3>
+<p>Longitude of the usual study location.</p>
+<p>The accuracy depends on the survey type.
+For EGT surveys, the coordinates are guaranteed to be within 100 meters of the actual location.
+For other surveys, the coordinates represent the centroid of <code>study_detailed_zone</code> (or the exact
+coordinates defined by <code>study_special_location</code> when it is non-null).</p>
+<ul>
+<li><strong>Type:</strong> Float64</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is <em>not</em> <code>"student"</code>, then the value is null.</li>
+<li>If <code>study_only_at_home</code> is true, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="study_lat"><a class="header" href="#study_lat"><code>study_lat</code></a></h3>
+<p>Latitude of the usual study_location.</p>
+<p>See <a href="#study_lng"><code>study_lng</code></a> for details on the accuracy of the value.</p>
+<ul>
+<li><strong>Type:</strong> Float64</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is <em>not</em> <code>"student"</code>, then the value is null.</li>
+<li>If <code>study_only_at_home</code> is true, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="study_special_location"><a class="header" href="#study_special_location"><code>study_special_location</code></a></h3>
+<p>Identifier of the special location zone where the person usually studies.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is <em>not</em> <code>"student"</code>, then the value is null.</li>
+<li>If <code>study_only_at_home</code> is true, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="study_detailed_zone"><a class="header" href="#study_detailed_zone"><code>study_detailed_zone</code></a></h3>
+<p>Identifier of the detailed zone where the person usually studies.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is <em>not</em> <code>"student"</code>, then the value is null.</li>
+<li>If <code>study_only_at_home</code> is true, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="study_draw_zone"><a class="header" href="#study_draw_zone"><code>study_draw_zone</code></a></h3>
+<p>Identifier of the draw zone where the person usually studies.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is <em>not</em> <code>"student"</code>, then the value is null.</li>
+<li>If <code>study_only_at_home</code> is true, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="study_insee"><a class="header" href="#study_insee"><code>study_insee</code></a></h3>
+<p>INSEE code of the municipality where the person usually studies.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>String is a <a href="../miscellaneous.html#insee-codes">valid INSEE code</a>.</li>
+<li>If <code>professional_occupation</code> is <em>not</em> <code>"student"</code>, then the value is null.</li>
+<li>If <code>study_only_at_home</code> is true, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="study_insee_name"><a class="header" href="#study_insee_name"><code>study_insee_name</code></a></h3>
+<p>Name of the municipality where the person usually studies.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is <em>not</em> <code>"student"</code>, then the value is null.</li>
+<li>If <code>study_only_at_home</code> is true, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="study_dep"><a class="header" href="#study_dep"><code>study_dep</code></a></h3>
+<p><em>Département</em> code of the usual study location.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is a valid <em>département</em> code.</li>
+<li>If <code>study_insee</code> is not null, then the value is equal to the <em>département</em> of the study INSEE
+municipality.</li>
+<li>If <code>professional_occupation</code> is <em>not</em> <code>"student"</code>, then the value is null.</li>
+<li>If <code>study_only_at_home</code> is true, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="study_dep_name"><a class="header" href="#study_dep_name"><code>study_dep_name</code></a></h3>
+<p>Name of the <em>département</em> of the usual study location.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is <em>not</em> <code>"student"</code>, then the value is null.</li>
+<li>If <code>study_only_at_home</code> is true, then the value is null.</li>
+<li>The value is consistent with <code>study_dep</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="study_nuts2"><a class="header" href="#study_nuts2"><code>study_nuts2</code></a></h3>
+<p>NUTS 2 code of the usual study location.</p>
+<p>In France, NUTS 2 corresponds to the 22 old administrative regions (and 5 overseas departments).</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is <em>not</em> <code>"student"</code>, then the value is null.</li>
+<li>If <code>study_only_at_home</code> is true, then the value is null.</li>
+<li>The value is a valid NUTS 2 code.</li>
+<li>If <code>study_dep</code> is not null, then the value is equal to the NUTS 2 code corresponding to the
+study <em>département</em>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="study_nuts2_name"><a class="header" href="#study_nuts2_name"><code>study_nuts2_name</code></a></h3>
+<p>Name of the NUTS 2 region of the usual study location.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is <em>not</em> <code>"student"</code>, then the value is null.</li>
+<li>If <code>study_only_at_home</code> is true, then the value is null.</li>
+<li>The value is consistent with <code>study_nuts2</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="study_nuts1"><a class="header" href="#study_nuts1"><code>study_nuts1</code></a></h3>
+<p>NUTS 1 code of the usual study location.</p>
+<p>In France, NUTS 1 corresponds to the 13 administrative regions (and 1 overseas region).</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is <em>not</em> <code>"student"</code>, then the value is null.</li>
+<li>If <code>study_only_at_home</code> is true, then the value is null.</li>
+<li>The value is a valid NUTS 1 code.</li>
+<li>If <code>study_nuts2</code> is not null, then the value is equal to the NUTS 1 code corresponding to the
+study NUTS 2.</li>
+</ul>
+</li>
+</ul>
+<h3 id="study_nuts1_name"><a class="header" href="#study_nuts1_name"><code>study_nuts1_name</code></a></h3>
+<p>Name of the NUTS 1 region of the usual study location.</p>
+<ul>
+<li><strong>Type:</strong> String</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is <em>not</em> <code>"student"</code>, then the value is null.</li>
+<li>If <code>study_only_at_home</code> is true, then the value is null.</li>
+<li>The value is consistent with <code>study_nuts1</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="study-commute"><a class="header" href="#study-commute">Study commute</a></h2>
+<h3 id="study_commute_euclidean_distance_km"><a class="header" href="#study_commute_euclidean_distance_km"><code>study_commute_euclidean_distance_km</code></a></h3>
+<p>Euclidean distance, in kilometers, between the person’s home location and usual study location.</p>
+<ul>
+<li><strong>Type:</strong> Float64</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is non-negative.</li>
+<li>If <code>professional_occupation</code> is <em>not</em> <code>"student"</code>, then the value is null.</li>
+<li>If <code>study_only_at_home</code> is true, then the value is zero.</li>
+</ul>
+</li>
+</ul>
+<h3 id="has_car_for_study_commute"><a class="header" href="#has_car_for_study_commute"><code>has_car_for_study_commute</code></a></h3>
+<p>Whether the person has a car they can use to commute to study.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"yes:full_commute"</code>: the person has a car that they use for the full trip</li>
+<li><code>"yes:partial_commute"</code>: the person has a car that they use for a part of the trip</li>
+<li><code>"yes:not_used"</code>: the person has a car that they could use to commute to study but they do not</li>
+<li><code>"yes:partial_or_not_used"</code>: the person has a car but it is not used or only for a part of the
+trip</li>
+<li><code>"yes:full_or_partial"</code>: the person has a car that they use partially or fully to commute to
+study</li>
+<li><code>"no"</code>: no</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is <em>not</em> <code>"student"</code>, then the value is null.</li>
+<li>If <code>study_only_at_home</code> is true, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h2 id="study-location-parking"><a class="header" href="#study-location-parking">Study location parking</a></h2>
+<h3 id="study_car_parking"><a class="header" href="#study_car_parking"><code>study_car_parking</code></a></h3>
+<p>Whether the person has access to a car parking spot at the usual study location.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"yes:reserved"</code>: the person has (or could have) a reserved car spot at study</li>
+<li><code>"yes:many_spots"</code>: the person can park their car at study because they are many spots available</li>
+<li><code>"yes:compatible_schedule"</code>: the person can park their car at study because their study schedule
+allow them to easily find spots</li>
+<li><code>"no"</code>: the person cannot park their car at study</li>
+<li><code>"dont_know"</code>: the person does not know whether they can park their car at study</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is <em>not</em> <code>"student"</code>, then the value is null.</li>
+<li>If <code>study_only_at_home</code> is true, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="study_bicycle_parking"><a class="header" href="#study_bicycle_parking"><code>study_bicycle_parking</code></a></h3>
+<p>Whether the person has access to a bicycle parking spot at the usual study location.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"yes:on_site:sheltered"</code>: the person has access to a sheltered bicycle parking at study
+location</li>
+<li><code>"yes:on_site:unsheltered"</code>: the person has access to an unsheltered bicycle parking at study
+location</li>
+<li><code>"yes:on_site"</code>: the person has access to a bicycle parking at study location (unknown whether
+it is sheltered)</li>
+<li><code>"yes:nearby:sheltered"</code>: the person has access to a sheltered bicycle parking nearby study
+location</li>
+<li><code>"yes:nearby:unsheltered"</code>: the person has access to an unsheltered bicycle parking nearby study
+location</li>
+<li><code>"yes:nearby"</code>: the person has access to a bicycle parking nearby study location (unknown
+whether it is sheltered)</li>
+<li><code>"no"</code>: the person does not have access to a bicycle parking at or near study location</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If <code>professional_occupation</code> is <em>not</em> <code>"student"</code>, then the value is null.</li>
+<li>If <code>study_only_at_home</code> is true, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h2 id="mobility"><a class="header" href="#mobility">Mobility</a></h2>
+<h3 id="has_driving_license"><a class="header" href="#has_driving_license"><code>has_driving_license</code></a></h3>
+<p>Whether the person has a driving license (for car vehicles).</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"yes"</code>: the person has a driving license</li>
+<li><code>"no"</code>: the person does not have a driving license</li>
+<li><code>"in_progress"</code>: the person is taking driving lessons or learning through accompanied driving
+(“conduite accompagnée”)</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If the value is <code>"yes"</code>, then the person is not younger than 17.</li>
+<li>If the value is <code>"in_progress"</code>, then the person is not younger than 15.</li>
+</ul>
+</li>
+</ul>
+<h3 id="has_motorcycle_driving_license"><a class="header" href="#has_motorcycle_driving_license"><code>has_motorcycle_driving_license</code></a></h3>
+<p>Whether the person has a driving license for motorcycles.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"yes"</code>: the person has a driving license for motorcycles</li>
+<li><code>"no"</code>: the person does not have a driving license for motorcycles</li>
+<li><code>"in_progress"</code>: the person is taking driving lessons</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>If the value is <code>"yes"</code>, then the person is not younger than 17.</li>
+<li>If the value is <code>"in_progress"</code>, then the person is not younger than 15.</li>
+</ul>
+</li>
+</ul>
+<h3 id="public_transit_subscription"><a class="header" href="#public_transit_subscription"><code>public_transit_subscription</code></a></h3>
+<p>Type of public-transit subscription that the person owns.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"yes:free"</code>: the person owns a free public-transit subscription</li>
+<li><code>"yes:paid:with_employer_contribution"</code>, the person owns a paid public-transit subscription
+that is partially borne by the employer</li>
+<li><code>"yes:paid:without_employer_contribution"</code>, the person owns a paid public-transit subscription
+that is not borne by the employer</li>
+<li><code>"yes:paid"</code>: the person owns a paid public-transit subscription (with unspecified cost
+bearing)</li>
+<li><code>"yes:unspecified"</code>: the person owns a public-transit subscription with unspecified cost)</li>
+<li><code>"no"</code>: the person does not own a public-transit subscription</li>
+</ul>
+</li>
+</ul>
+<h3 id="has_public_transit_subscription"><a class="header" href="#has_public_transit_subscription"><code>has_public_transit_subscription</code></a></h3>
+<p>Whether the person owns a valid public-transit subscription.</p>
+<p>Usually, the question asked is “did you have a valid public-transit subscription yesterday?” which
+means that the subscription was valid during the person’s surveyed trips.</p>
+<ul>
+<li><strong>Type:</strong> Boolean</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is not null when <code>public_transit_subscription</code> is not null.</li>
+<li>The value is consistent with <code>public_transit_subscription</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="car_sharing_subscription"><a class="header" href="#car_sharing_subscription"><code>car_sharing_subscription</code></a></h3>
+<p>Type of car-sharing service subscription that the person has.</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"yes:organized"</code>: the person has a car-sharing subscription for a short-term rental service
+proposed by a firm or a public organization (e.g., Citiz)</li>
+<li><code>"yes:peer_to_peer"</code>: the person has a car-sharing subscription for a peer-to-peer service
+(“partage entre particuliers”)</li>
+<li><code>"yes:unspecified"</code>: the person has a car-sharing subscription (no further details)</li>
+<li><code>"no"</code>: the person does not have a car-sharing subscription</li>
+</ul>
+</li>
+</ul>
+<h3 id="has_car_sharing_subscription"><a class="header" href="#has_car_sharing_subscription"><code>has_car_sharing_subscription</code></a></h3>
+<p>Whether the person has a subscription for a car-sharing service (“autopartage”).</p>
+<ul>
+<li><strong>Type:</strong> Boolean</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is not null when <code>car_sharing_subscription</code> is not null.</li>
+<li>The value is consistent with <code>car_sharing_subscription</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="has_bike_sharing_subscription"><a class="header" href="#has_bike_sharing_subscription"><code>has_bike_sharing_subscription</code></a></h3>
+<p>Whether the person has a subscription for a bike-sharing service (“vélo libre service”).</p>
+<ul>
+<li><strong>Type:</strong> Boolean</li>
+</ul>
+<h3 id="has_travel_inconvenience"><a class="header" href="#has_travel_inconvenience"><code>has_travel_inconvenience</code></a></h3>
+<p>Whether the person has reported having travel inconveniences (e.g., wheelchair, blindness,
+pregnancy).</p>
+<ul>
+<li><strong>Type:</strong> Boolean</li>
+</ul>
+<h2 id="trip-survey"><a class="header" href="#trip-survey">Trip survey</a></h2>
+<h3 id="is_surveyed"><a class="header" href="#is_surveyed"><code>is_surveyed</code></a></h3>
+<p>Whether the person was surveyed for their trips over a day (usually the previous day of the
+interview).</p>
+<p>Note that a surveyed person might have no trip if they did not travel during that day.</p>
+<ul>
+<li><strong>Type:</strong> Boolean</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is not null.</li>
+<li>When set to <code>false</code>, there is no trip and leg for this person.</li>
+</ul>
+</li>
+</ul>
+<h3 id="traveled_during_surveyed_day"><a class="header" href="#traveled_during_surveyed_day"><code>traveled_during_surveyed_day</code></a></h3>
+<p>Whether the person performed at least one trip during the surveyed day (usually the day before
+the interview).</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"yes"</code>: the person did at least one trip</li>
+<li><code>"no"</code>: the person did not travel</li>
+<li><code>"away"</code>: the person was away from home during that day</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is null <em>if and only if</em> <code>is_surveyed</code> is false.</li>
+</ul>
+</li>
+</ul>
+<h3 id="worked_during_surveyed_day"><a class="header" href="#worked_during_surveyed_day"><code>worked_during_surveyed_day</code></a></h3>
+<p>Whether the person worked during the surveyed day (usually the day before the interview).</p>
+<ul>
+<li><strong>Modalities:</strong>
+<ul>
+<li><code>"yes:outside"</code>: the person worked outside from home</li>
+<li><code>"yes:home:usual"</code>: the person worked from home, as usual</li>
+<li><code>"yes:home:telework"</code>: the person teleworked</li>
+<li><code>"yes:home:other"</code>: the person worked from home for another reason than telework</li>
+<li><code>"yes:unspecified"</code>: the person worked (with no specification where)</li>
+<li><code>"no:weekday"</code>: the person never work during that weekday</li>
+<li><code>"no:reason"</code>: the person did not work <em>exceptionally</em> due to holidays, sickness, strike, or any
+other reason</li>
+<li><code>"no:unspecified"</code>: the person did not work, for unspecified reason</li>
+</ul>
+</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is null when <code>is_surveyed</code> is false.</li>
+<li>If <code>work_only_at_home</code> is false, then the value is not <code>"yes:home:usual"</code>.</li>
+<li>If the value is <code>"no:weekday"</code>, then there is not trip with work purpose for that person (for
+<code>"no:reason"</code> and <code>"no:unspecified"</code> it might happen that the person went to work and realised
+that they could not work because of a strike for example).</li>
+<li>If the value is <code>"yes:outside"</code> and <code>is_surveyed</code> is true, then there is at least one trip with
+work purpose for that person.</li>
+</ul>
+</li>
+</ul>
+<h3 id="nb_trips"><a class="header" href="#nb_trips"><code>nb_trips</code></a></h3>
+<p>Number of trips that the person performed.</p>
+<ul>
+<li><strong>Type:</strong> UInt8</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is null <em>if and only if</em> <code>is_surveyed</code> is false.</li>
+<li>The value is equal to the number of trips in <code>trips.parquet</code> for the person.</li>
+<li>If <code>traveled_during_surveyed_day</code> is <code>"no"</code> or <code>"away"</code>, then the value is zero.</li>
+<li>If <code>traveled_during_surveyed_day</code> is <code>"yes"</code>, then the value is positive.</li>
+</ul>
+</li>
+</ul>
+<h3 id="traveled_on_weekday"><a class="header" href="#traveled_on_weekday"><code>traveled_on_{weekday}</code></a></h3>
+<p>Seven variables (<code>traveled_on_monday</code>, <code>traveled_on_tuesday</code>, <code>traveled_on_wednesday</code>,
+<code>traveled_on_thursday</code>, <code>traveled_on_friday</code>, <code>traveled_on_saturday</code>, <code>traveled_on_sunday</code>)
+indicating whether the person performed at least one trip during the last given weekday before the
+interview.</p>
+<p>For the EMP 2019 and EMG 2023, most values are defined.
+For other surveys, only one day is surveyed: the variable of the surveyed weekday (<code>trips_weekday</code>
+of the household) is derived from <code>traveled_during_surveyed_day</code> (<code>"away"</code> gives a null value) and
+the six other variables are null.</p>
+<ul>
+<li><strong>Type:</strong> Boolean</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is null when <code>is_surveyed</code> is false.</li>
+<li>The value for the weekday of the surveyed day (<code>trips_weekday</code> of the household) is not
+<code>false</code> if <code>nb_trips</code> is positive, and it is not <code>true</code> if <code>traveled_during_surveyed_day</code> is
+<code>"no"</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="sample-weights"><a class="header" href="#sample-weights">Sample weights</a></h2>
+<h3 id="sample_weight_all"><a class="header" href="#sample_weight_all"><code>sample_weight_all</code></a></h3>
+<p>Sample weight of the person among all the persons interviewed.</p>
+<p>The sum of the values is supposed to be approximately equal to the number of persons in the survey
+area.</p>
+<ul>
+<li><strong>Type:</strong> Float64</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is non-negative.</li>
+</ul>
+</li>
+</ul>
+<h3 id="sample_weight_surveyed"><a class="header" href="#sample_weight_surveyed"><code>sample_weight_surveyed</code></a></h3>
+<p>Sample weight of the person among all the persons whose trips were surveyed.</p>
+<p>The sum of the values is supposed to be approximately equal to the number of persons in the survey
+area.
+Note that the sum of <code>sample_weight_surveyed</code> might differ from the sum of <code>sample_weight_all</code>
+because the former usually excludes children below 5.</p>
+<ul>
+<li><strong>Type:</strong> Float64</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is non-negative.</li>
+<li>If <code>is_surveyed</code> is false, then the value is null.</li>
+</ul>
+</li>
+</ul>
+<h3 id="sample_weight_day"><a class="header" href="#sample_weight_day"><code>sample_weight_day</code></a></h3>
+<p>Sample weight of the person for the surveyed day.</p>
+<p>For most surveys, the surveyed day does not depend on the person’s travel behavior so the value is
+equal to <code>sample_weight_surveyed</code>.
+The weights then represent an average surveyed day (e.g., an average working day).</p>
+<p>For the EMP 2019, the surveyed day is always a day when the person traveled.
+For each weekday, the sum of <code>sample_weight_day</code> over the persons surveyed for that weekday is
+approximately equal to the number of persons who traveled on that weekday.
+The value is null for the persons who did not travel during the whole week (they have no surveyed
+day).</p>
+<ul>
+<li><strong>Type:</strong> Float64</li>
+<li><strong>Guarantees:</strong>
+<ul>
+<li>The value is non-negative.</li>
+<li>If <code>is_surveyed</code> is false, then the value is null.</li>
+</ul>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../format/households.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../format/trips.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../format/households.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../format/trips.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-09f2665d.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-609e4cb8.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
